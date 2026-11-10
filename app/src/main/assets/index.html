@@ -39,7 +39,7 @@ footer{text-align:center;color:#697786;font-size:10px;padding:20px 0}
    <div class="metric"><b>Global</b><small>Competition coverage target</small></div>
   </div>
   <div class="section-head"><h2>Data connection</h2><span>SETUP REQUIRED</span></div>
-  <div class="notice"><strong>Live football feed not connected yet</strong><p>This first build is the working app foundation. Live worldwide fixtures, injuries, suspensions, odds and confirmed lineups will only appear after a licensed data provider is connected. The app will not fill this screen with invented matches.</p></div>
+  <div class="notice" id="connectionNotice"><strong>Checking football data connection</strong><p>Fixtures are refreshed from a free data feed. Injury, suspension, odds and lineup checks will be enabled only when reliable sourced data is available. ZXBet never invents matches or predictions.</p></div>
   <div class="section-head"><h2>ZXBet selection rules</h2><span>MODEL POLICY</span></div>
   <div class="card">
    <div class="rule"><span>Below 69%</span><b>REJECT</b></div>
@@ -54,7 +54,7 @@ footer{text-align:center;color:#697786;font-size:10px;padding:20px 0}
  </section>
  <section class="page" id="fixtures">
   <div class="section-head"><h2>Worldwide fixtures</h2><span>MON–SUN</span></div>
-  <div class="empty"><div class="ball">⚽</div><b>Waiting for verified fixture data</b><p>Fixtures will load here when a football data provider is connected. No demo matches are presented as real fixtures.</p></div>
+  <div class="section-head"><h2 id="fixtureStatus">Connecting to free football feed…</h2><span id="fixtureUpdated">—</span></div><div id="fixtureList"><div class="empty"><div class="ball">⚽</div><b>Loading verified fixtures</b><p>ZXBet is checking the latest published fixture feed.</p></div></div>
  </section>
  <section class="page" id="picks">
   <div class="section-head"><h2>Qualified predictions</h2><span>69% MINIMUM</span></div>
@@ -92,6 +92,39 @@ document.querySelectorAll("nav button").forEach(button=>button.addEventListener(
  document.getElementById("pageKicker").textContent=labels[id];
  window.scrollTo(0,0);
 }));
+const FEED_URL="https://raw.githubusercontent.com/doctorzuza22-pixel/zxbet-predictions/main/data/fixtures.json";
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function showFixtureError(message){
+ document.getElementById("fixtureStatus").textContent="Fixture feed unavailable";
+ document.getElementById("fixtureList").innerHTML='<div class="empty"><div class="ball">⚽</div><b>Verified fixture feed is not available yet</b><p>'+esc(message)+'</p><p>Try again later. No sample matches are shown.</p></div>';
+}
+async function loadFixtures(){
+ try{
+  const response=await fetch(FEED_URL+"?v="+Date.now(),{cache:"no-store"});
+  if(!response.ok) throw new Error("Feed has not been published yet.");
+  const feed=await response.json();
+  if(!Array.isArray(feed.response)) throw new Error("Fixture feed format is not valid.");
+  const fixtures=feed.response.filter(x=>x.fixture&&x.teams&&x.league).sort((a,b)=>new Date(a.fixture.date)-new Date(b.fixture.date));
+  document.getElementById("fixtureUpdated").textContent=feed.generated_at?("UPDATED "+new Date(feed.generated_at).toLocaleString()):"LIVE FEED";
+  document.getElementById("fixtureStatus").textContent=fixtures.length+" verified fixtures";
+  const host=document.getElementById("fixtureList");
+  if(!fixtures.length){showFixtureError("The provider returned no fixtures for the published dates.");return;}
+  host.innerHTML="";
+  fixtures.forEach(item=>{
+   const card=document.createElement("div");card.className="card";
+   const date=new Date(item.fixture.date);
+   const status=item.fixture.status?.short||"NS";
+   const time=date.toLocaleString("en-ZA",{weekday:"short",day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"});
+   const home=item.teams.home?.name||"Home";const away=item.teams.away?.name||"Away";
+   const score=(item.goals?.home!==null&&item.goals?.away!==null)?(" · "+item.goals.home+" - "+item.goals.away):"";
+   card.innerHTML='<div class="section-head" style="margin:0 0 9px"><span>'+esc(item.league.name||"Competition")+' · '+esc(item.league.country||"")+'</span><span>'+esc(status)+score+'</span></div><h3>'+esc(home)+' vs '+esc(away)+'</h3><p>'+esc(time)+' · '+esc(item.fixture.venue?.name||"Venue TBC")+'</p>';
+   host.appendChild(card);
+  });
+  document.getElementById("connectionNotice").innerHTML="<strong>Free football feed connected</strong><p>Verified fixtures are loading. Team news, odds and predictions remain unpublished until their own data-quality checks are complete.</p>";
+ }catch(error){showFixtureError(error.message||"Network error. Check your connection and retry.");}
+}
+loadFixtures();
+setInterval(loadFixtures,30*60*1000);
 </script>
 </body>
 </html>
