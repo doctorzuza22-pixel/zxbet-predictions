@@ -1,0 +1,59 @@
+name: Refresh free football fixtures
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 */6 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Fetch next seven days from API-Football free tier
+        env:
+          APISPORTS_KEY: ${{ secrets.APISPORTS_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "${APISPORTS_KEY:-}" ]; then
+            echo "::error::Repository secret APISPORTS_KEY is missing or empty."
+            exit 1
+          fi
+          mkdir -p data
+          combined='[]'
+          for offset in 0 1 2 3 4 5 6; do
+            day="$(date -u -d "+${offset} day" +%F)"
+            echo "Fetching fixtures for ${day}"
+            body="$(curl --fail --silent --show-error --get \
+              --header "x-apisports-key: ${APISPORTS_KEY}" \
+              --data-urlencode "date=${day}" \
+              --data-urlencode "timezone=Africa/Johannesburg" \
+              "https://v3.football.api-sports.io/fixtures")"
+            if ! echo "$body" | jq -e '(.errors | length) == 0 and (.response | type) == "array"' >/dev/null; then
+              echo "::error::Provider returned an API error for ${day}; keeping existing published feed."
+              echo "$body" | jq '{errors, results, paging}' || true
+              exit 1
+            fi
+            combined="$(jq -cn --argjson old "$combined" --argjson new "$body" '$old + $new.response')"
+          done
+          jq -n --arg generated_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --argjson response "$combined" '{generated_at:$generated_at,response:$response}' > data/fixtures.json
+          echo "Published candidate fixture count: $(jq '.response|length' data/fixtures.json)"
+
+      - name: Publish updated feed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/fixtures.json
+          if git diff --cached --quiet; then
+            echo "Fixture feed unchanged."
+          else
+            git commit -m "Refresh verified football fixtures"
+            git push
+          fi
