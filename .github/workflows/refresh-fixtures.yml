@@ -1,6 +1,9 @@
 name: Refresh free football fixtures
 
 on:
+  push:
+    paths:
+      - '.github/workflows/refresh-fixtures.yml'
   workflow_dispatch:
   schedule:
     - cron: '17 */6 * * *'
