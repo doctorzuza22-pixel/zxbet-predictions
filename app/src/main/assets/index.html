@@ -1,196 +1,58 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="theme-color" content="#080c12">
-<title>ZXBet Predictions</title>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#080c12"><title>ZXBet Predictions</title>
 <style>
-:root{--bg:#080c12;--panel:#111923;--panel2:#151f2b;--line:#253241;--gold:#e6bd63;--text:#f4f6f8;--muted:#93a0ae;--green:#5fd0a0;--red:#f17f7f}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px Arial, sans-serif;padding-bottom:82px}
-header{padding:22px 18px 16px;background:linear-gradient(180deg,#101923,#080c12);border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:11px}.mark{width:38px;height:38px;border-radius:11px;background:var(--gold);color:#10151b;display:grid;place-items:center;font-weight:900;font-size:17px;letter-spacing:-1px}.brand-name{font-size:19px;font-weight:800;letter-spacing:.3px}.brand-name span{color:var(--gold)}.sub{color:var(--muted);font-size:11px;margin-top:4px;letter-spacing:1.3px;text-transform:uppercase}
-.topline{display:flex;justify-content:space-between;align-items:center;margin-top:22px}.eyebrow{font-size:11px;color:var(--muted);letter-spacing:1.2px;text-transform:uppercase}.date{font-size:12px;color:var(--muted)}
-main{padding:17px 16px}.hero{background:linear-gradient(135deg,#172535,#111923 70%);border:1px solid #2b3b4c;border-radius:17px;padding:19px;margin-bottom:17px}.hero h1{font-size:22px;margin:8px 0}.hero p{color:#aab6c2;font-size:13px;line-height:1.5;margin:8px 0 0}.pill{display:inline-flex;align-items:center;border:1px solid #6a5731;color:var(--gold);border-radius:20px;padding:6px 10px;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase}
-.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:18px}.metric{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:14px}.metric b{display:block;font-size:21px;margin-bottom:5px}.metric small{color:var(--muted);font-size:11px}
-.section-head{display:flex;justify-content:space-between;align-items:center;margin:21px 1px 10px}.section-head h2{font-size:15px;margin:0}.section-head span{font-size:11px;color:var(--muted)}
-.notice{background:#171b1e;border:1px solid #55462b;border-radius:13px;padding:14px;margin-top:10px}.notice strong{display:block;color:var(--gold);font-size:13px;margin-bottom:6px}.notice p{font-size:12px;line-height:1.5;color:#b5bec7;margin:0}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:15px;margin-bottom:10px}.card h3{font-size:13px;margin:0 0 7px}.card p{font-size:12px;color:var(--muted);line-height:1.5;margin:0}
-.rule{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:12px}.rule:last-child{border:0}.rule span{color:var(--muted)}.rule b{color:var(--gold)}
-nav{position:fixed;bottom:0;left:0;right:0;background:#0d141d;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:9px 4px calc(9px + env(safe-area-inset-bottom));z-index:5}
-nav button{background:none;border:0;color:#8996a4;font-size:10px;padding:5px 2px;min-width:19%;font-weight:600}nav button.active{color:var(--gold)}nav button .ico{display:block;font-size:18px;margin-bottom:4px}
-.page{display:none}.page.active{display:block}.empty{padding:28px 16px;text-align:center;background:var(--panel);border:1px dashed #344252;border-radius:13px}.empty .ball{font-size:27px;margin-bottom:10px}.empty b{display:block;font-size:13px;margin-bottom:7px}.empty p{font-size:12px;line-height:1.5;color:var(--muted);margin:0}
-.tag{display:inline-block;border-radius:5px;background:#1b2937;color:#b7c5d2;padding:5px 7px;font-size:10px;margin:3px 3px 0 0}
-footer{text-align:center;color:#697786;font-size:10px;padding:20px 0}\n.match-open{width:100%;margin-top:12px;padding:11px;border:1px solid #6a5731;border-radius:9px;background:#202a35;color:var(--gold);font-weight:700;font-size:12px}.detail-panel{background:#101923;border:1px solid #6a5731;border-radius:14px;padding:15px;margin:10px 0 14px}.detail-panel h3{margin:0 0 8px;font-size:15px}.detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}.detail-cell{background:#182432;border:1px solid #2a3b4b;border-radius:9px;padding:10px}.detail-cell small{display:block;color:var(--muted);font-size:10px;margin-bottom:5px}.detail-cell b{font-size:14px;color:var(--gold)}.detail-note{font-size:11px;color:var(--muted);line-height:1.5;margin-top:10px}
-</style>
-</head>
+:root{--bg:#080c12;--panel:#111923;--panel2:#182432;--line:#293746;--gold:#e6bd63;--text:#f4f6f8;--muted:#96a4b2;--green:#65d4a2}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px Arial,sans-serif;padding-bottom:78px}
+header{padding:19px 17px 14px;background:#101923;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:4}
+.brand{display:flex;align-items:center;gap:10px}.mark{width:38px;height:38px;border-radius:10px;background:var(--gold);color:#10151b;display:grid;place-items:center;font-weight:900}.brand-name{font-size:18px;font-weight:900}.brand-name span{color:var(--gold)}.sub{font-size:10px;color:var(--muted);letter-spacing:1.1px;margin-top:4px}
+main{padding:16px}.page{display:none}.page.active{display:block}.hero{padding:19px;border-radius:16px;background:linear-gradient(135deg,#1a2b3c,#111923);border:1px solid #304255;margin-bottom:16px}.eyebrow{color:var(--gold);font-size:10px;font-weight:700;letter-spacing:1.3px}.hero h1{font-size:23px;margin:9px 0}.hero p,.muted{color:var(--muted);font-size:12px;line-height:1.55;margin:0}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin:20px 1px 10px}.section-head h2{font-size:15px;margin:0}.section-head span{font-size:10px;color:var(--muted)}
+.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin:12px 0}.metric,.card,.panel{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:14px}.metric b{display:block;font-size:20px;color:var(--gold);margin-bottom:5px}.metric small{font-size:10px;color:var(--muted)}
+.card{margin-bottom:10px}.match-card{cursor:pointer}.match-card:active{border-color:var(--gold)}.league{font-size:10px;color:var(--muted);display:flex;justify-content:space-between;gap:8px;margin-bottom:10px}.teams{font-size:14px;font-weight:800;line-height:1.45}.match-meta{font-size:11px;color:var(--muted);margin-top:8px}.tap{margin-top:12px;color:var(--gold);font-size:11px;font-weight:800;letter-spacing:.5px}
+button{font:inherit}.primary{width:100%;border:1px solid #735e32;border-radius:9px;padding:12px;background:#202d3a;color:var(--gold);font-weight:800}
+nav{position:fixed;bottom:0;left:0;right:0;z-index:5;display:flex;background:#0d141d;border-top:1px solid var(--line);padding:8px 8px calc(8px + env(safe-area-inset-bottom))}nav button{flex:1;background:none;border:0;color:var(--muted);font-size:11px;padding:7px}nav button.active{color:var(--gold)}nav .ico{display:block;font-size:18px;margin-bottom:4px}
+.empty{text-align:center;padding:25px 14px;border:1px dashed #344252;border-radius:13px;background:var(--panel)}.empty b{display:block;margin:8px 0;font-size:13px}.empty p{font-size:11px;color:var(--muted);line-height:1.5;margin:0}
+#matchView{display:none}#matchView.active{display:block}.back{border:0;background:none;color:var(--gold);padding:4px 0 15px;font-weight:800;font-size:12px}.match-title{padding:17px;background:linear-gradient(135deg,#1a2b3c,#111923);border:1px solid #304255;border-radius:15px}.match-title .teams{font-size:19px}.tabs{display:flex;gap:7px;overflow-x:auto;margin:14px 0;padding-bottom:4px}.tabs button{white-space:nowrap;border:1px solid var(--line);border-radius:20px;background:var(--panel);color:var(--muted);padding:9px 13px;font-size:11px;font-weight:700}.tabs button.active{background:#4a3b20;border-color:#806638;color:var(--gold)}
+.detail-section{display:none}.detail-section.active{display:block}.panel{margin-bottom:10px}.panel h3{font-size:13px;margin:0 0 10px}.rowline{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:12px}.rowline:last-child{border-bottom:0}.rowline span{color:var(--muted)}.rowline b{text-align:right;color:var(--gold);max-width:65%}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.stat{background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:11px}.stat small{display:block;color:var(--muted);font-size:10px;margin-bottom:6px}.stat b{font-size:15px;color:var(--gold)}.note{font-size:11px;color:var(--muted);line-height:1.5;margin-top:10px}.badge{font-size:10px;color:var(--green)}
+</style></head>
 <body>
-<header>
- <div class="brand"><div class="mark">ZX</div><div><div class="brand-name">ZXBET <span>PREDICTIONS</span></div><div class="sub">Football intelligence • Worldwide</div></div></div>
- <div class="topline"><div class="eyebrow" id="pageKicker">MATCH INTELLIGENCE</div><div class="date" id="today"></div></div>
-</header>
+<header><div class="brand"><div class="mark">ZX</div><div><div class="brand-name">ZXBET <span>PREDICTIONS</span></div><div class="sub">WORLDWIDE FOOTBALL INTELLIGENCE</div></div></div></header>
 <main>
- <section class="page active" id="home">
-  <div class="hero"><span class="pill">Global coverage planned</span><h1>Make every pick earn its place.</h1><p>Worldwide football analysis, team availability checks and lineup-aware predictions. No forced bets. No made-up certainty.</p></div>
-  <div class="metrics">
-   <div class="metric"><b>69%+</b><small>Minimum model probability</small></div>
-   <div class="metric"><b>3 days</b><small>Fixture window monitored</small></div>
-   <div class="metric"><b>0</b><small>Verified live picks published</small></div>
-   <div class="metric"><b>Global</b><small>Competition coverage target</small></div>
-  </div>
-  <div class="section-head"><h2>Data connection</h2><span>SETUP REQUIRED</span></div>
-  <div class="notice" id="connectionNotice"><strong>Checking football data connection</strong><p>Fixtures are refreshed from a free data feed. Injury, suspension, odds and lineup checks will be enabled only when reliable sourced data is available. ZXBet never invents matches or predictions.</p></div>
-  <div class="section-head"><h2>ZXBet selection rules</h2><span>MODEL POLICY</span></div>
-  <div class="card">
-   <div class="rule"><span>Below 69%</span><b>REJECT</b></div>
-   <div class="rule"><span>69–74%</span><b>CAUTION</b></div>
-   <div class="rule"><span>75–84%</span><b>STRONGER</b></div>
-   <div class="rule"><span>85%+</span><b>VERIFY EVIDENCE</b></div>
-  </div>
-  <div class="section-head"><h2>Coverage roadmap</h2><span>WORLDWIDE</span></div>
-  <div class="card"><h3>South Africa & Africa</h3><p>PSL, Motsepe Foundation Championship, domestic cups, CAF competitions and national teams.</p><span class="tag">South Africa</span><span class="tag">CAF</span></div>
-  <div class="card"><h3>Europe</h3><p>Premier League, Championship, La Liga, Bundesliga, Serie A, Ligue 1, UEFA Champions League and Europa League.</p><span class="tag">UEFA</span><span class="tag">Top divisions</span></div>
-  <div class="card"><h3>Rest of the world</h3><p>Asia, North America, South America and other competitions where dependable data is available.</p><span class="tag">AFC</span><span class="tag">CONCACAF</span><span class="tag">CONMEBOL</span></div>
- </section>
- <section class="page" id="fixtures">
-  <div class="section-head"><h2>Worldwide fixtures</h2><span>MON–SUN</span></div>
-  <div class="section-head"><h2 id="fixtureStatus">Connecting to free football feed…</h2><span id="fixtureUpdated">—</span></div><div id="matchDetail"></div><div id="fixtureList"><div class="empty"><div class="ball">⚽</div><b>Loading verified fixtures</b><p>ZXBet is checking the latest published fixture feed.</p></div></div>
- </section>
- <section class="page" id="picks">
-  <div class="section-head"><h2>Qualified predictions</h2><span>69% MINIMUM</span></div>
-  <div id="pickStatus" class="notice"><strong>Checking forecast feed</strong><p>Only provider forecasts with a displayed probability of 69% or higher can appear here. This is an external provider model, not a guarantee or a separately calibrated ZXBet model.</p></div>
-  <div id="pickList"><div class="empty"><div class="ball">◎</div><b>Loading forecasts</b><p>Checking available match predictions.</p></div></div>
-  <div class="card"><h3>Selection rules</h3><div class="rule"><span>Below 69%</span><b>NO PICK</b></div><div class="rule"><span>69–74%</span><b>CAUTION</b></div><div class="rule"><span>75–84%</span><b>STRONGER</b></div><div class="rule"><span>85%+</span><b>VERIFY EVIDENCE</b></div></div>
- </section>
- <section class="page" id="news">
-  <div class="section-head"><h2>Team news & lineups</h2><span>PROVIDER REPORTS</span></div>
-  <div id="newsStatus" class="notice"><strong>Checking injury feed</strong><p>Reports will be shown only when returned by the data provider. Coverage varies by competition.</p></div>
-  <div id="newsList"><div class="empty"><div class="ball">＋</div><b>Loading team news</b><p>Checking reported player absences.</p></div></div>
-  <div class="card"><h3>Rotation & fatigue</h3><p>Not yet calculated. Fixture congestion and likely squad rotation checks remain a separate development task.</p></div>
-  <div class="card"><h3>Confirmed starting XI</h3><p>Official lineups are not yet being monitored automatically. Do not treat missing reports as confirmation that every player is available.</p></div>
- </section>
- <section class="page" id="performance">
-  <div class="section-head"><h2>Live fixture statistics</h2><span>FROM VERIFIED FEED</span></div>
-  <div class="metrics"><div class="metric"><b id="statTotal">—</b><small>Fixtures in feed</small></div><div class="metric"><b id="statUpcoming">—</b><small>Not started</small></div><div class="metric"><b id="statLive">—</b><small>Live / in play</small></div><div class="metric"><b id="statFinished">—</b><small>Finished</small></div></div>
-  <div class="section-head"><h2>Prediction performance</h2><span>HONEST TRACKING</span></div>
-  <div class="metrics"><div class="metric"><b>0</b><small>Recorded predictions</small></div><div class="metric"><b>—</b><small>Verified accuracy</small></div></div>
-  <div class="empty"><div class="ball">▤</div><b>No prediction history yet</b><p>Accuracy and profit tracking will begin when real, timestamped picks are generated. Losses will remain in the record. Fixture counts above are not betting performance.</p></div>
- </section>
+<section id="home" class="page active">
+ <div class="hero"><div class="eyebrow">WELCOME TO ZXBET</div><h1>Every match. One place.</h1><p>Choose a fixture to open its predictions, team news, form and match statistics. Only data returned by our sources is displayed.</p></div>
+ <div class="metrics"><div class="metric"><b id="homeFixtures">—</b><small>Fixtures available</small></div><div class="metric"><b id="homeForecasts">—</b><small>Forecasts received</small></div></div>
+ <div class="section-head"><h2>Next matches</h2><span id="homeUpdated">LOADING</span></div><div id="homeMatches"><div class="empty"><b>Loading matches</b><p>Connecting to the free football feed…</p></div></div>
+ <button class="primary" onclick="showPage('fixtures')">VIEW ALL FIXTURES</button>
+</section>
+<section id="fixtures" class="page">
+ <div class="section-head"><h2>All fixtures</h2><span id="fixtureCount">LOADING</span></div>
+ <div id="fixtureList"><div class="empty"><b>Loading verified fixtures</b><p>Please wait while the free feed connects.</p></div></div>
+</section>
+<section id="matchView">
+ <button class="back" onclick="closeMatch()">← BACK TO FIXTURES</button>
+ <div class="match-title"><div class="eyebrow" id="detailLeague">MATCH CENTRE</div><div class="teams" id="detailTeams">Select a fixture</div><div class="match-meta" id="detailMeta"></div></div>
+ <div class="tabs"><button class="active" data-tab="overview" onclick="showTab('overview',this)">Overview</button><button data-tab="predictions" onclick="showTab('predictions',this)">Predictions</button><button data-tab="teamnews" onclick="showTab('teamnews',this)">Team news</button><button data-tab="stats" onclick="showTab('stats',this)">Stats & form</button></div>
+ <div id="tab-overview" class="detail-section active"></div><div id="tab-predictions" class="detail-section"></div><div id="tab-teamnews" class="detail-section"></div><div id="tab-stats" class="detail-section"></div>
+</section>
 </main>
-<nav>
- <button class="active" data-page="home"><span class="ico">⌂</span>Home</button>
- <button data-page="fixtures"><span class="ico">▦</span>Fixtures</button>
- <button data-page="picks"><span class="ico">◎</span>Picks</button>
- <button data-page="news"><span class="ico">＋</span>Team News</button>
- <button data-page="performance"><span class="ico">▤</span>Stats</button>
-</nav>
+<nav><button class="active" data-page="home" onclick="showPage('home')"><span class="ico">⌂</span>Home</button><button data-page="fixtures" onclick="showPage('fixtures')"><span class="ico">⚽</span>Fixtures</button></nav>
 <script>
-const labels={home:"MATCH INTELLIGENCE",fixtures:"GLOBAL FIXTURES",picks:"QUALIFIED PICKS",news:"TEAM INTELLIGENCE",performance:"TRACK RECORD"};
-document.getElementById("today").textContent=new Intl.DateTimeFormat("en-ZA",{day:"2-digit",month:"short",year:"numeric"}).format(new Date());
-document.querySelectorAll("nav button").forEach(button=>button.addEventListener("click",()=>{
- document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
- document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
- button.classList.add("active");
- const id=button.dataset.page;
- document.getElementById(id).classList.add("active");
- document.getElementById("pageKicker").textContent=labels[id];
- window.scrollTo(0,0);
-}));
-const FEED_URL="https://raw.githubusercontent.com/doctorzuza22-pixel/zxbet-predictions/main/data/fixtures.json";\nlet predictionByFixture={};\nfunction openMatchDetails(id){const item=predictionByFixture[String(id)];const host=document.getElementById("matchDetail");if(!item){host.innerHTML='<div class="detail-panel"><h3>Match analysis not available yet</h3><p class="detail-note">No provider forecast was returned for this fixture. Exact score, goals markets and card markets are not fabricated.</p></div>';return;}const p=item.analysis?.predictions||{};const pct=p.percent||{};const home=item.fixture?.teams?.home?.name||"Home";const away=item.fixture?.teams?.away?.name||"Away";const goalLine=p.under_over||"Not supplied";const hg=p.goals?.home||"Not supplied";const ag=p.goals?.away||"Not supplied";host.innerHTML='<div class="detail-panel"><h3>'+esc(home)+' vs '+esc(away)+' — Match analysis</h3><div class="detail-grid"><div class="detail-cell"><small>Home win</small><b>'+esc(pct.home||"—") +'</b></div><div class="detail-cell"><small>Draw</small><b>'+esc(pct.draw||"—") +'</b></div><div class="detail-cell"><small>Away win</small><b>'+esc(pct.away||"—") +'</b></div><div class="detail-cell"><small>Provider goals line</small><b>'+esc(goalLine)+'</b></div><div class="detail-cell"><small>Home team goals</small><b>'+esc(hg)+'</b></div><div class="detail-cell"><small>Away team goals</small><b>'+esc(ag)+'</b></div></div><div class="rule"><span>Provider advice</span><b>'+esc(p.advice||"Not supplied")+'</b></div><div class="rule"><span>Exact predicted score</span><b>Not supplied</b></div><div class="rule"><span>Cards market</span><b>Not connected</b></div><p class="detail-note">Goals values and over/under line are provider forecast fields, not confirmed betting odds or guaranteed outcomes. Card predictions and exact score require a separate supported data feed.</p></div>';host.scrollIntoView({behavior:"smooth",block:"start"});}
-const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-function showFixtureError(message){
- document.getElementById("fixtureStatus").textContent="Fixture feed unavailable";
- document.getElementById("fixtureList").innerHTML='<div class="empty"><div class="ball">⚽</div><b>Verified fixture feed is not available yet</b><p>'+esc(message)+'</p><p>Try again later. No sample matches are shown.</p></div>';
-}
-async function loadFixtures(){
- try{
-  const response=await fetch(FEED_URL+"?v="+Date.now(),{cache:"no-store"});
-  if(!response.ok) throw new Error("Feed has not been published yet.");
-  const feed=await response.json();
-  if(!Array.isArray(feed.response)) throw new Error("Fixture feed format is not valid.");
-  const fixtures=feed.response.filter(x=>x.fixture&&x.teams&&x.league).sort((a,b)=>new Date(a.fixture.date)-new Date(b.fixture.date));
-  document.getElementById("fixtureUpdated").textContent=feed.generated_at?("UPDATED "+new Date(feed.generated_at).toLocaleString()):"LIVE FEED";
-  document.getElementById("fixtureStatus").textContent=fixtures.length+" verified fixtures";
-  const now=Date.now();
-  const liveStatuses=["1H","HT","2H","ET","P","LIVE","INT"];
-  const finishedStatuses=["FT","AET","PEN"];
-  const live=fixtures.filter(x=>liveStatuses.includes(String(x.fixture.status?.short||"").toUpperCase())).length;
-  const finished=fixtures.filter(x=>finishedStatuses.includes(String(x.fixture.status?.short||"").toUpperCase())).length;
-  const upcoming=fixtures.filter(x=>new Date(x.fixture.date).getTime()>now&&!liveStatuses.includes(String(x.fixture.status?.short||"").toUpperCase())&&!finishedStatuses.includes(String(x.fixture.status?.short||"").toUpperCase())).length;
-  document.getElementById("statTotal").textContent=fixtures.length;
-  document.getElementById("statUpcoming").textContent=upcoming;
-  document.getElementById("statLive").textContent=live;
-  document.getElementById("statFinished").textContent=finished;
-  const host=document.getElementById("fixtureList");
-  if(!fixtures.length){showFixtureError("The provider returned no fixtures for the published dates.");return;}
-  host.innerHTML="";
-  fixtures.forEach(item=>{
-   const card=document.createElement("div");card.className="card";
-   const date=new Date(item.fixture.date);
-   const status=item.fixture.status?.short||"NS";
-   const time=date.toLocaleString("en-ZA",{weekday:"short",day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"});
-   const home=item.teams.home?.name||"Home";const away=item.teams.away?.name||"Away";
-   const score=(item.goals?.home!==null&&item.goals?.away!==null)?(" · "+item.goals.home+" - "+item.goals.away):"";
-   card.innerHTML='<div class="section-head" style="margin:0 0 9px"><span>'+esc(item.league.name||"Competition")+' · '+esc(item.league.country||"")+'</span><span>'+esc(status)+score+'</span></div><h3>'+esc(home)+' vs '+esc(away)+'</h3><p>'+esc(time)+' · '+esc(item.fixture.venue?.name||"Venue TBC")+'</p>';
-   host.appendChild(card);
-  });
-  document.getElementById("connectionNotice").innerHTML="<strong>Free football feed connected</strong><p>Verified fixtures are loading. Team news, odds and predictions remain unpublished until their own data-quality checks are complete.</p>";
- }catch(error){showFixtureError(error.message||"Network error. Check your connection and retry.");}
-}
-async function loadAnalysis(){
- const pickHost=document.getElementById("pickList");
- try{
-  const r=await fetch("https://raw.githubusercontent.com/doctorzuza22-pixel/zxbet-predictions/main/data/predictions.json?v="+Date.now(),{cache:"no-store"});
-  if(!r.ok) throw new Error("Forecast feed has not been published yet.");
-  const feed=await r.json();
-  const records=Array.isArray(feed.response)?feed.response:[];
-  const qualified=[];
-  records.forEach(record=>{
-   const p=record.analysis?.predictions?.percent||{};
-   const choices=[
-    {key:"home",label:(record.fixture?.teams?.home?.name||"Home")+" win",value:parseFloat(String(p.home??"").replace("%",""))},
-    {key:"draw",label:"Draw",value:parseFloat(String(p.draw??"").replace("%",""))},
-    {key:"away",label:(record.fixture?.teams?.away?.name||"Away")+" win",value:parseFloat(String(p.away??"").replace("%",""))}
-   ].filter(x=>Number.isFinite(x.value)).sort((a,b)=>b.value-a.value);
-   if(choices.length&&choices[0].value>=69){
-    qualified.push({fixture:record.fixture,analysis:record.analysis,choice:choices[0]});
-   }
-  });
-  document.getElementById("pickStatus").innerHTML="<strong>"+qualified.length+" qualifying picks · "+records.length+" forecasts checked</strong><p>Provider model forecast • Generated "+esc(feed.generated_at||"time unavailable")+". Picks are not guarantees. Only the highest 1X2 probability per fixture is shown.</p>";
-  pickHost.innerHTML="";
-  if(!qualified.length){pickHost.innerHTML='<div class="empty"><div class="ball">◎</div><b>No fixtures currently meet 69%</b><p>'+records.length+' provider forecasts checked. No qualifying selection means no pick.</p></div>'; }
-  qualified.sort((a,b)=>b.choice.value-a.choice.value).forEach(item=>{
-   const card=document.createElement("div");card.className="card";
-   const f=item.fixture;const date=f?.fixture?.date?new Date(f.fixture.date).toLocaleString("en-ZA",{weekday:"short",day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"}):"Kickoff TBC";
-   const tier=item.choice.value>=85?"VERIFY EVIDENCE":item.choice.value>=75?"STRONGER":"CAUTION";
-   card.innerHTML='<div class="section-head" style="margin:0 0 8px"><span>'+esc(f?.league?.name||"Competition")+' · '+esc(f?.league?.country||"")+'</span><span>'+tier+'</span></div><h3>'+esc(f?.teams?.home?.name||"Home")+' vs '+esc(f?.teams?.away?.name||"Away")+'</h3><p>'+esc(date)+'</p><div class="rule"><span>Selection</span><b>'+esc(item.choice.label)+'</b></div><div class="rule"><span>Provider probability</span><b>'+item.choice.value.toFixed(1)+'%</b></div>';
-   pickHost.appendChild(card);
-  });
- }catch(e){
-  document.getElementById("pickStatus").innerHTML="<strong>Forecast feed not available</strong><p>"+esc(e.message)+" Predictions are not invented when the feed is missing.</p>";
-  pickHost.innerHTML='<div class="empty"><div class="ball">◎</div><b>No verified forecast data</b><p>Try again after the daily forecast refresh.</p></div>';
- }
- try{
-  const r=await fetch("https://raw.githubusercontent.com/doctorzuza22-pixel/zxbet-predictions/main/data/injuries.json?v="+Date.now(),{cache:"no-store"});
-  if(!r.ok) throw new Error("Team-news feed has not been published yet.");
-  const feed=await r.json();const items=Array.isArray(feed.response)?feed.response:[];
-  document.getElementById("newsStatus").innerHTML="<strong>"+items.length+" player-availability reports</strong><p>Provider feed generated "+esc(feed.generated_at||"time unavailable")+". Competition coverage may vary.</p>";
-  const host=document.getElementById("newsList");host.innerHTML="";
-  if(!items.length) host.innerHTML='<div class="empty"><div class="ball">＋</div><b>No reported absences returned</b><p>This does not prove all players are available. The provider may not cover every competition.</p></div>';
-  items.forEach(item=>{
-   const card=document.createElement("div");card.className="card";
-   card.innerHTML='<h3>'+esc(item.player?.name||"Player report")+' · '+esc(item.team?.name||"Team unavailable")+'</h3><p>'+esc(item.player?.type||"Status unavailable")+' — '+esc(item.player?.reason||"No reason supplied")+'</p><p>'+esc(item.league?.name||"Competition unavailable")+'</p>';
-   host.appendChild(card);
-  });
- }catch(e){
-  document.getElementById("newsStatus").innerHTML="<strong>Team-news feed not available</strong><p>"+esc(e.message)+" Missing reports must not be interpreted as players being fit.</p>";
-  document.getElementById("newsList").innerHTML="";
- }
-}
-loadFixtures();
-loadAnalysis();
-setInterval(loadFixtures,30*60*1000);
-setInterval(loadAnalysis,6*60*60*1000);
-</script>
-</body>
-</html>
+const BASE="https://raw.githubusercontent.com/doctorzuza22-pixel/zxbet-predictions/main/data/";
+let fixtures=[],predictions={},injuries=[],currentMatch=null;
+const esc=s=>String(s??"—").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const dateText=d=>d?new Date(d).toLocaleString("en-ZA",{weekday:"short",day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"}):"Kickoff unavailable";
+function showPage(id){document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById("matchView").classList.remove("active");document.getElementById(id).classList.add("active");document.querySelectorAll("nav button").forEach(x=>x.classList.toggle("active",x.dataset.page===id));window.scrollTo(0,0)}
+function matchCard(f){const id=f.fixture?.id;return '<div class="card match-card" onclick="openMatch('+Number(id)+')"><div class="league"><span>'+esc(f.league?.name)+' · '+esc(f.league?.country)+'</span><span>'+esc(f.fixture?.status?.short||"NS")+'</span></div><div class="teams">'+esc(f.teams?.home?.name)+'<br>vs<br>'+esc(f.teams?.away?.name)+'</div><div class="match-meta">'+esc(dateText(f.fixture?.date))+'</div><div class="tap">TAP TO VIEW MATCH ANALYSIS →</div></div>'}
+function renderFixtures(){const sorted=fixtures.slice().sort((a,b)=>new Date(a.fixture.date)-new Date(b.fixture.date));document.getElementById("fixtureCount").textContent=sorted.length+" MATCHES";document.getElementById("homeFixtures").textContent=sorted.length;document.getElementById("homeMatches").innerHTML=sorted.length?sorted.slice(0,6).map(matchCard).join(""):'<div class="empty"><b>No fixtures returned</b><p>The feed currently has no fixtures.</p></div>';document.getElementById("fixtureList").innerHTML=sorted.length?sorted.map(matchCard).join(""):'<div class="empty"><b>No fixtures available</b><p>Try again after the next feed refresh.</p></div>'}
+function showTab(tab,btn){document.querySelectorAll(".tabs button").forEach(x=>x.classList.remove("active"));btn.classList.add("active");document.querySelectorAll(".detail-section").forEach(x=>x.classList.remove("active"));document.getElementById("tab-"+tab).classList.add("active")}
+function closeMatch(){document.getElementById("matchView").classList.remove("active");showPage("fixtures")}
+function openMatch(id){currentMatch=fixtures.find(f=>Number(f.fixture?.id)===Number(id));if(!currentMatch)return;document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById("matchView").classList.add("active");document.querySelectorAll("nav button").forEach(x=>x.classList.toggle("active",x.dataset.page==="fixtures"));const f=currentMatch;const p=predictions[String(id)];document.getElementById("detailLeague").textContent=(f.league?.name||"MATCH CENTRE")+" · "+(f.league?.country||"");document.getElementById("detailTeams").innerHTML=esc(f.teams?.home?.name)+"<br>vs<br>"+esc(f.teams?.away?.name);document.getElementById("detailMeta").textContent=dateText(f.fixture?.date)+" · "+(f.fixture?.venue?.name||"Venue TBC");renderOverview(f,p);renderPredictions(f,p);renderTeamNews(f);renderStats(f,p);showTab("overview",document.querySelector('.tabs button[data-tab="overview"]'));window.scrollTo(0,0)}
+function renderOverview(f,p){const score=f.goals?.home!=null&&f.goals?.away!=null?f.goals.home+" - "+f.goals.away:"Not started";document.getElementById("tab-overview").innerHTML='<div class="panel"><h3>Match information</h3><div class="rowline"><span>Competition</span><b>'+esc(f.league?.name)+'</b></div><div class="rowline"><span>Country</span><b>'+esc(f.league?.country)+'</b></div><div class="rowline"><span>Kick-off</span><b>'+esc(dateText(f.fixture?.date))+'</b></div><div class="rowline"><span>Status</span><b>'+esc(f.fixture?.status?.long||f.fixture?.status?.short||"Unknown")+'</b></div><div class="rowline"><span>Score</span><b>'+esc(score)+'</b></div></div><div class="panel"><h3>Analysis availability</h3><div class="rowline"><span>Forecast</span><b>'+(p?"Available":"Not returned")+'</b></div><div class="rowline"><span>Team news</span><b>'+injuries.filter(x=>Number(x.fixture?.id)===Number(f.fixture?.id)).length+' reports matched</b></div><p class="note">Open the tabs above to inspect the information returned for this match. Missing data is labelled rather than guessed.</p></div>'}
+function renderPredictions(f,p){const el=document.getElementById("tab-predictions");if(!p){el.innerHTML='<div class="empty"><b>No forecast returned for this match yet</b><p>Our free provider did not return a prediction for this fixture. No score or betting selection will be invented.</p></div>';return}const a=p.analysis?.predictions||{},pct=a.percent||{};el.innerHTML='<div class="panel"><h3>1X2 probability · provider forecast</h3><div class="grid"><div class="stat"><small>Home win</small><b>'+esc(pct.home)+'</b></div><div class="stat"><small>Draw</small><b>'+esc(pct.draw)+'</b></div><div class="stat"><small>Away win</small><b>'+esc(pct.away)+'</b></div><div class="stat"><small>Provider goals line</small><b>'+esc(a.under_over||"Not supplied")+'</b></div></div><p class="note">These are the provider's model percentages, not guaranteed outcomes or independently verified ZXBet probabilities.</p></div><div class="panel"><h3>Goal estimates</h3><div class="rowline"><span>'+esc(f.teams?.home?.name)+' goals</span><b>'+esc(a.goals?.home||"Not supplied")+'</b></div><div class="rowline"><span>'+esc(f.teams?.away?.name)+' goals</span><b>'+esc(a.goals?.away||"Not supplied")+'</b></div><div class="rowline"><span>Provider advice</span><b>'+esc(a.advice||"Not supplied")+'</b></div></div><div class="panel"><h3>Other markets</h3><div class="rowline"><span>Exact score</span><b>Not supplied by current feed</b></div><div class="rowline"><span>Over / under probabilities</span><b>Line only; probability unavailable</b></div><div class="rowline"><span>Cards</span><b>Not connected yet</b></div><p class="note">We will only show market predictions when a source supplies the actual data.</p></div>'}
+function renderTeamNews(f){const items=injuries.filter(x=>Number(x.fixture?.id)===Number(f.fixture?.id));document.getElementById("tab-teamnews").innerHTML=items.length?items.map(x=>'<div class="panel"><h3>'+esc(x.player?.name)+'</h3><div class="rowline"><span>Team</span><b>'+esc(x.team?.name)+'</b></div><div class="rowline"><span>Type</span><b>'+esc(x.player?.type)+'</b></div><div class="rowline"><span>Reason</span><b>'+esc(x.player?.reason)+'</b></div></div>').join(""):'<div class="empty"><b>No team-news reports returned for this match</b><p>This does not confirm that all players are fit. The free provider may have limited coverage for this competition.</p></div>'}
+function renderStats(f,p){const c=p?.analysis?.comparison||{};const rows=[["Form",c.form],["Attack",c.att],["Defence",c.def],["Poisson estimate",c.poisson_distribution],["Head-to-head",c.h2h],["Goals comparison",c.goals],["Overall comparison",c.total]];document.getElementById("tab-stats").innerHTML='<div class="panel"><h3>Provider comparison</h3>'+(rows.filter(x=>x[1]).map(x=>'<div class="rowline"><span>'+esc(x[0])+'</span><b>'+esc(x[1].home||"—")+' / '+esc(x[1].away||"—")+'</b></div>').join("")||'<p class="note">No comparison statistics were returned for this fixture.</p>')+'</div><div class="panel"><h3>Match statistics</h3><p class="note">Live possession, shots, corners and cards statistics are not currently included in the free fixture feed. They will appear here once a supported data source is connected.</p></div>'}
+async function load(){try{const [fr,pr,ir]=await Promise.all([fetch(BASE+"fixtures.json?v="+Date.now()),fetch(BASE+"predictions.json?v="+Date.now()),fetch(BASE+"injuries.json?v="+Date.now())]);if(!fr.ok)throw Error("Fixture feed unavailable");const fj=await fr.json();fixtures=Array.isArray(fj.response)?fj.response:[];if(pr.ok){const pj=await pr.json();(pj.response||[]).forEach(x=>{const id=x.fixture?.fixture?.id;if(id!=null)predictions[String(id)]=x});document.getElementById("homeForecasts").textContent=Object.keys(predictions).length}else document.getElementById("homeForecasts").textContent="0";if(ir.ok){const ij=await ir.json();injuries=Array.isArray(ij.response)?ij.response:[]}renderFixtures();document.getElementById("homeUpdated").textContent=fj.generated_at?"UPDATED "+new Date(fj.generated_at).toLocaleTimeString():"FEED CONNECTED"}catch(e){document.getElementById("homeMatches").innerHTML='<div class="empty"><b>Fixtures could not load</b><p>'+esc(e.message)+' Check your internet connection and try again.</p></div>';document.getElementById("fixtureList").innerHTML=document.getElementById("homeMatches").innerHTML}}
+load();setInterval(load,30*60*1000);
+</script></body></html>
