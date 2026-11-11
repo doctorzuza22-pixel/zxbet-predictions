@@ -1,0 +1,108 @@
+name: Refresh predictions and team news
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '43 1 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Fetch provider forecasts and injury reports within free quota
+        env:
+          APISPORTS_KEY: ${{ secrets.APISPORTS_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "${APISPORTS_KEY:-}" ]; then
+            echo "::error::Repository secret APISPORTS_KEY is missing or empty."
+            exit 1
+          fi
+          mkdir -p data
+          tmpdir="$(mktemp -d)"
+          trap 'rm -rf "$tmpdir"' EXIT
+          : > "$tmpdir/predictions.ndjson"
+          : > "$tmpdir/injuries.ndjson"
+
+          # The free plan allows 100 requests/day. The existing fixture
+          # refresh uses about 12/day; cap forecast calls at 60 and injuries
+          # at 3/day, leaving headroom for retries and manual checks.
+          jq -c '[.response[]
+            | select(.fixture.status.short == "NS")
+            | select(.fixture.id != null)
+            | select(.fixture.date != null)]
+            | sort_by(.fixture.date)
+            | .[:60][]' data/fixtures.json > "$tmpdir/selected.ndjson"
+
+          count=0
+          while IFS= read -r fixture; do
+            [ -n "$fixture" ] || continue
+            id="$(printf '%s' "$fixture" | jq -r '.fixture.id')"
+            echo "Fetching provider forecast for fixture $id"
+            if curl --fail --silent --show-error --get \
+              --header "x-apisports-key: ${APISPORTS_KEY}" \
+              --data-urlencode "fixture=$id" \
+              "https://v3.football.api-sports.io/predictions" \
+              --output "$tmpdir/prediction-$id.json"; then
+              if jq -e '(.errors | length) == 0 and (.response | type) == "array"' "$tmpdir/prediction-$id.json" >/dev/null; then
+                jq -c --argjson fixture "$fixture" '.response[0] | select(.predictions.percent != null) | {fixture:$fixture,analysis:.}' "$tmpdir/prediction-$id.json" >> "$tmpdir/predictions.ndjson"
+              else
+                echo "No valid prediction returned for fixture $id; skipping."
+              fi
+            else
+              echo "Request failed for fixture $id; skipping."
+            fi
+            count=$((count+1))
+            sleep 1
+          done < "$tmpdir/selected.ndjson"
+
+          jq -s --arg generated_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --argjson analyzed "$count" \
+            '{generated_at:$generated_at,source:"API-Football provider forecast",analyzed:$analyzed,response:.}' \
+            "$tmpdir/predictions.ndjson" > "$tmpdir/predictions.json"
+
+          : > "$tmpdir/dates.txt"
+          for offset in -1 0 1; do date -u -d "+${offset} day" +%F >> "$tmpdir/dates.txt"; done
+          while IFS= read -r day; do
+            echo "Fetching injury reports for $day"
+            if curl --fail --silent --show-error --get \
+              --header "x-apisports-key: ${APISPORTS_KEY}" \
+              --data-urlencode "date=$day" \
+              --data-urlencode "timezone=Africa/Johannesburg" \
+              "https://v3.football.api-sports.io/injuries" \
+              --output "$tmpdir/injuries-$day.json"; then
+              if jq -e '(.errors | length) == 0 and (.response | type) == "array"' "$tmpdir/injuries-$day.json" >/dev/null; then
+                jq -c '.response[]' "$tmpdir/injuries-$day.json" >> "$tmpdir/injuries.ndjson"
+              else
+                echo "No valid injury response for $day."
+              fi
+            fi
+          done < "$tmpdir/dates.txt"
+
+          jq -s --arg generated_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            '{generated_at:$generated_at,source:"API-Football injury reports",response:.}' \
+            "$tmpdir/injuries.ndjson" > "$tmpdir/injuries.json"
+
+          mv "$tmpdir/predictions.json" data/predictions.json
+          mv "$tmpdir/injuries.json" data/injuries.json
+          echo "Forecasts stored: $(jq '.response|length' data/predictions.json)"
+          echo "Injury reports stored: $(jq '.response|length' data/injuries.json)"
+
+      - name: Publish analysis feeds
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/predictions.json data/injuries.json
+          if git diff --cached --quiet; then
+            echo "Analysis feeds unchanged."
+          else
+            git commit -m "Refresh provider predictions and team news"
+            git push
+          fi
