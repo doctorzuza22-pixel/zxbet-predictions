@@ -34,7 +34,7 @@ footer{text-align:center;color:#697786;font-size:10px;padding:20px 0}
   <div class="hero"><span class="pill">Global coverage planned</span><h1>Make every pick earn its place.</h1><p>Worldwide football analysis, team availability checks and lineup-aware predictions. No forced bets. No made-up certainty.</p></div>
   <div class="metrics">
    <div class="metric"><b>69%+</b><small>Minimum model probability</small></div>
-   <div class="metric"><b>7 days</b><small>Fixtures monitored weekly</small></div>
+   <div class="metric"><b>3 days</b><small>Fixture window monitored</small></div>
    <div class="metric"><b>0</b><small>Verified live picks published</small></div>
    <div class="metric"><b>Global</b><small>Competition coverage target</small></div>
   </div>
@@ -58,19 +58,22 @@ footer{text-align:center;color:#697786;font-size:10px;padding:20px 0}
  </section>
  <section class="page" id="picks">
   <div class="section-head"><h2>Qualified predictions</h2><span>69% MINIMUM</span></div>
-  <div class="empty"><div class="ball">◎</div><b>No verified picks yet</b><p>A match must pass the probability threshold and the data-quality checks before it can appear here. No pick is guaranteed.</p></div>
+  <div class="notice"><strong>Prediction engine not active yet</strong><p>The fixture feed is connected, but ZXBet is not yet calculating probabilities from team form, xG, home/away strength, player availability and confirmed lineups. This screen will only publish a pick after those checks are implemented and verified. No made-up tips.</p></div>
+  <div class="card"><h3>What qualifies as a ZXBet pick?</h3><div class="rule"><span>Estimated probability below 69%</span><b>NO PICK</b></div><div class="rule"><span>69–74%</span><b>CAUTION</b></div><div class="rule"><span>75–84%</span><b>STRONGER</b></div><div class="rule"><span>85%+</span><b>VERIFY EVIDENCE</b></div></div>
  </section>
  <section class="page" id="news">
-  <div class="section-head"><h2>Team news & lineups</h2><span>PRE-MATCH CHECKS</span></div>
-  <div class="card"><h3>Player availability</h3><p>Injuries, suspensions, doubtful players and expected returns will be checked against sourced reports.</p></div>
-  <div class="card"><h3>Rotation & fatigue alerts</h3><p>Fixture congestion, upcoming major matches and likely resting of key starters will trigger a warning or HOLD status.</p></div>
-  <div class="card"><h3>Confirmed starting XI</h3><p>Predictions should be recalculated when official lineups are released. Uncertain lineups can mean NO PICK.</p></div>
-  <div class="notice"><strong>Source transparency</strong><p>Each future team-news item must show its source and last-checked time. Unverified rumours will not be treated as facts.</p></div>
+  <div class="section-head"><h2>Team news & lineups</h2><span>DATA STATUS</span></div>
+  <div class="notice"><strong>Team-news feed not connected yet</strong><p>Live injury and suspension reports are not currently being retrieved. This section will not label players injured, suspended or available without a verified source.</p></div>
+  <div class="card"><h3>Injuries & suspensions</h3><p><b>Not yet available.</b> A sourced player-availability feed still needs to be connected.</p></div>
+  <div class="card"><h3>Rotation & fatigue</h3><p><b>Not yet calculated.</b> Fixture congestion and likely squad rotation checks are still to be implemented.</p></div>
+  <div class="card"><h3>Confirmed starting XI</h3><p><b>Not yet available.</b> Official lineup monitoring and post-lineup recalculation are still to be implemented.</p></div>
  </section>
  <section class="page" id="performance">
-  <div class="section-head"><h2>Performance tracker</h2><span>NO CHERRY-PICKING</span></div>
-  <div class="metrics"><div class="metric"><b>—</b><small>Recorded predictions</small></div><div class="metric"><b>—</b><small>Verified accuracy</small></div></div>
-  <div class="empty"><div class="ball">▤</div><b>Tracking starts with the first real pick</b><p>Every selection—including losses—will be recorded. Accuracy and returns will be reported separately by market.</p></div>
+  <div class="section-head"><h2>Live fixture statistics</h2><span>FROM VERIFIED FEED</span></div>
+  <div class="metrics"><div class="metric"><b id="statTotal">—</b><small>Fixtures in feed</small></div><div class="metric"><b id="statUpcoming">—</b><small>Not started</small></div><div class="metric"><b id="statLive">—</b><small>Live / in play</small></div><div class="metric"><b id="statFinished">—</b><small>Finished</small></div></div>
+  <div class="section-head"><h2>Prediction performance</h2><span>HONEST TRACKING</span></div>
+  <div class="metrics"><div class="metric"><b>0</b><small>Recorded predictions</small></div><div class="metric"><b>—</b><small>Verified accuracy</small></div></div>
+  <div class="empty"><div class="ball">▤</div><b>No prediction history yet</b><p>Accuracy and profit tracking will begin when real, timestamped picks are generated. Losses will remain in the record. Fixture counts above are not betting performance.</p></div>
  </section>
 </main>
 <nav>
@@ -107,6 +110,16 @@ async function loadFixtures(){
   const fixtures=feed.response.filter(x=>x.fixture&&x.teams&&x.league).sort((a,b)=>new Date(a.fixture.date)-new Date(b.fixture.date));
   document.getElementById("fixtureUpdated").textContent=feed.generated_at?("UPDATED "+new Date(feed.generated_at).toLocaleString()):"LIVE FEED";
   document.getElementById("fixtureStatus").textContent=fixtures.length+" verified fixtures";
+  const now=Date.now();
+  const liveStatuses=["1H","HT","2H","ET","P","LIVE","INT"];
+  const finishedStatuses=["FT","AET","PEN"];
+  const live=fixtures.filter(x=>liveStatuses.includes(String(x.fixture.status?.short||"").toUpperCase())).length;
+  const finished=fixtures.filter(x=>finishedStatuses.includes(String(x.fixture.status?.short||"").toUpperCase())).length;
+  const upcoming=fixtures.filter(x=>new Date(x.fixture.date).getTime()>now&&!liveStatuses.includes(String(x.fixture.status?.short||"").toUpperCase())&&!finishedStatuses.includes(String(x.fixture.status?.short||"").toUpperCase())).length;
+  document.getElementById("statTotal").textContent=fixtures.length;
+  document.getElementById("statUpcoming").textContent=upcoming;
+  document.getElementById("statLive").textContent=live;
+  document.getElementById("statFinished").textContent=finished;
   const host=document.getElementById("fixtureList");
   if(!fixtures.length){showFixtureError("The provider returned no fixtures for the published dates.");return;}
   host.innerHTML="";
