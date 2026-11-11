@@ -21,7 +21,7 @@ jobs:
         with:
           persist-credentials: true
 
-      - name: Fetch provider forecasts and injury reports within free quota
+      - name: Fetch forecasts and team news with diagnostics
         env:
           APISPORTS_KEY: ${{ secrets.APISPORTS_KEY }}
         run: |
@@ -34,79 +34,84 @@ jobs:
           tmpdir="$(mktemp -d)"
           trap 'rm -rf "$tmpdir"' EXIT
           : > "$tmpdir/predictions.ndjson"
-          : > "$tmpdir/injuries.ndjson"
+          : > "$tmpdir/diagnostics.ndjson"
 
-          # The free plan allows 100 requests/day. The existing fixture
-          # refresh uses about 12/day; cap forecast calls at 60 and injuries
-          # at 3/day, leaving headroom for retries and manual checks.
+          # Prioritise senior competitions likely to have broader analytical coverage.
+          # Youth, women's, reserve and friendly fixtures remain in the fixtures feed,
+          # but do not consume the forecast request budget ahead of senior leagues.
           jq -c '[.response[]
             | select(.fixture.status.short == "NS")
-            | select(.fixture.id != null)
-            | select(.fixture.date != null)]
-            | sort_by(.fixture.date)
-            | .[:60][]' data/fixtures.json > "$tmpdir/selected.ndjson"
+            | select(.fixture.id != null and .fixture.date != null)
+            | select((.league.name // "") | test("U[0-9]{2}|Women|Female|Reserve|Youth|Friendlies"; "i") | not)]
+            | sort_by([-(if .league.standings == true then 1 else 0 end), .fixture.date])
+            | .[:55][]' data/fixtures.json > "$tmpdir/selected.ndjson"
 
           count=0
+          returned=0
+          empty=0
+          errors=0
           while IFS= read -r fixture; do
             [ -n "$fixture" ] || continue
             id="$(printf '%s' "$fixture" | jq -r '.fixture.id')"
-            echo "Fetching provider forecast for fixture $id"
-            if curl --fail --silent --show-error --get \
-              --header "x-apisports-key: ${APISPORTS_KEY}" \
-              --data-urlencode "fixture=$id" \
-              "https://v3.football.api-sports.io/predictions" \
-              --output "$tmpdir/prediction-$id.json"; then
-              if jq -e '(.errors | length) == 0 and (.response | type) == "array"' "$tmpdir/prediction-$id.json" >/dev/null; then
-                jq -c --argjson fixture "$fixture" '.response[0] | select(.predictions.percent != null) | {fixture:$fixture,analysis:.}' "$tmpdir/prediction-$id.json" >> "$tmpdir/predictions.ndjson"
-              else
-                echo "No valid prediction returned for fixture $id; skipping."
-              fi
+            league="$(printf '%s' "$fixture" | jq -r '.league.name // "Unknown league"')"
+            http_code="$(curl --silent --show-error --get               --header "x-apisports-key: ${APISPORTS_KEY}"               --data-urlencode "fixture=$id"               "https://v3.football.api-sports.io/predictions"               --output "$tmpdir/prediction-$id.json"               --write-out '%{http_code}' || true)"
+            if [ ! -s "$tmpdir/prediction-$id.json" ]; then
+              printf '%s\n' "$(jq -cn --argjson id "$id" --arg league "$league" --arg http "$http_code"                 '{fixture_id:$id,league:$league,status:"request_failed",http_status:$http}')" >> "$tmpdir/diagnostics.ndjson"
+              errors=$((errors+1))
+            elif ! jq -e '(.errors | length) == 0 and (.response | type) == "array"' "$tmpdir/prediction-$id.json" >/dev/null; then
+              reason="$(jq -c '.errors // .message // "Invalid provider response"' "$tmpdir/prediction-$id.json" | head -c 500)"
+              printf '%s\n' "$(jq -cn --argjson id "$id" --arg league "$league" --arg http "$http_code" --arg reason "$reason"                 '{fixture_id:$id,league:$league,status:"provider_error",http_status:$http,reason:$reason}')" >> "$tmpdir/diagnostics.ndjson"
+              errors=$((errors+1))
+            elif [ "$(jq '.response | length' "$tmpdir/prediction-$id.json")" -eq 0 ]; then
+              printf '%s\n' "$(jq -cn --argjson id "$id" --arg league "$league" --arg http "$http_code"                 '{fixture_id:$id,league:$league,status:"no_coverage_or_no_forecast",http_status:$http}')" >> "$tmpdir/diagnostics.ndjson"
+              empty=$((empty+1))
+            elif jq -e '.response[0].predictions.percent != null' "$tmpdir/prediction-$id.json" >/dev/null; then
+              jq -c --argjson fixture "$fixture" '.response[0] | {fixture:$fixture,analysis:.}' "$tmpdir/prediction-$id.json" >> "$tmpdir/predictions.ndjson"
+              printf '%s\n' "$(jq -cn --argjson id "$id" --arg league "$league" --arg http "$http_code"                 '{fixture_id:$id,league:$league,status:"forecast_saved",http_status:$http}')" >> "$tmpdir/diagnostics.ndjson"
+              returned=$((returned+1))
             else
-              echo "Request failed for fixture $id; skipping."
+              printf '%s\n' "$(jq -cn --argjson id "$id" --arg league "$league" --arg http "$http_code"                 '{fixture_id:$id,league:$league,status:"response_without_percentages",http_status:$http}')" >> "$tmpdir/diagnostics.ndjson"
+              empty=$((empty+1))
             fi
             count=$((count+1))
             sleep 1
           done < "$tmpdir/selected.ndjson"
 
-          jq -s --arg generated_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --argjson analyzed "$count" \
-            '{generated_at:$generated_at,source:"API-Football provider forecast",analyzed:$analyzed,response:.}' \
-            "$tmpdir/predictions.ndjson" > "$tmpdir/predictions.json"
+          jq -s --arg generated_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --argjson analyzed "$count"             '{generated_at:$generated_at,source:"API-Football provider forecast",analyzed:$analyzed,response:.}'             "$tmpdir/predictions.ndjson" > "$tmpdir/predictions.json"
 
-          : > "$tmpdir/dates.txt"
-          for offset in -1 0 1; do date -u -d "+${offset} day" +%F >> "$tmpdir/dates.txt"; done
-          while IFS= read -r day; do
-            echo "Fetching injury reports for $day"
-            if curl --fail --silent --show-error --get \
-              --header "x-apisports-key: ${APISPORTS_KEY}" \
-              --data-urlencode "date=$day" \
-              --data-urlencode "timezone=Africa/Johannesburg" \
-              "https://v3.football.api-sports.io/injuries" \
-              --output "$tmpdir/injuries-$day.json"; then
-              if jq -e '(.errors | length) == 0 and (.response | type) == "array"' "$tmpdir/injuries-$day.json" >/dev/null; then
-                jq -c '.response[]' "$tmpdir/injuries-$day.json" >> "$tmpdir/injuries.ndjson"
-              else
-                echo "No valid injury response for $day."
-              fi
+          : > "$tmpdir/injuries.ndjson"
+          : > "$tmpdir/injury-diagnostics.ndjson"
+          for offset in -1 0 1; do
+            day="$(date -u -d "+${offset} day" +%F)"
+            http_code="$(curl --silent --show-error --get               --header "x-apisports-key: ${APISPORTS_KEY}"               --data-urlencode "date=$day"               --data-urlencode "timezone=Africa/Johannesburg"               "https://v3.football.api-sports.io/injuries"               --output "$tmpdir/injuries-$day.json"               --write-out '%{http_code}' || true)"
+            if [ -s "$tmpdir/injuries-$day.json" ] && jq -e '(.errors | length) == 0 and (.response | type) == "array"' "$tmpdir/injuries-$day.json" >/dev/null; then
+              jq -c '.response[]' "$tmpdir/injuries-$day.json" >> "$tmpdir/injuries.ndjson"
+              result_count="$(jq '.response|length' "$tmpdir/injuries-$day.json")"
+              printf '%s\n' "$(jq -cn --arg date "$day" --arg http "$http_code" --argjson results "$result_count"                 '{date:$date,http_status:$http,status:(if $results == 0 then "empty_response" else "records_saved" end),results:$results}')" >> "$tmpdir/injury-diagnostics.ndjson"
+            else
+              printf '%s\n' "$(jq -cn --arg date "$day" --arg http "$http_code"                 '{date:$date,http_status:$http,status:"provider_error"}')" >> "$tmpdir/injury-diagnostics.ndjson"
             fi
-          done < "$tmpdir/dates.txt"
+          done
 
-          jq -s --arg generated_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-            '{generated_at:$generated_at,source:"API-Football injury reports",response:.}' \
-            "$tmpdir/injuries.ndjson" > "$tmpdir/injuries.json"
+          jq -s --arg generated_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)"             '{generated_at:$generated_at,source:"API-Football injury reports",response:.}'             "$tmpdir/injuries.ndjson" > "$tmpdir/injuries.json"
+
+          jq -n --arg generated_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)"             --argjson analyzed "$count" --argjson saved "$returned"             --argjson empty "$empty" --argjson errors "$errors"             --slurpfile fixtures "$tmpdir/diagnostics.ndjson"             --slurpfile injuries "$tmpdir/injury-diagnostics.ndjson"             '{generated_at:$generated_at,forecast_requests:$analyzed,forecasts_saved:$saved,empty_or_unsupported:$empty,provider_errors:$errors,fixtures:$fixtures,injury_days:$injuries}'             > "$tmpdir/analysis-diagnostics.json"
 
           mv "$tmpdir/predictions.json" data/predictions.json
           mv "$tmpdir/injuries.json" data/injuries.json
-          echo "Forecasts stored: $(jq '.response|length' data/predictions.json)"
+          mv "$tmpdir/analysis-diagnostics.json" data/analysis-diagnostics.json
+          echo "Forecasts saved: $returned of $count requests"
+          echo "Empty or unsupported: $empty; provider errors: $errors"
           echo "Injury reports stored: $(jq '.response|length' data/injuries.json)"
 
-      - name: Publish analysis feeds
+      - name: Publish analysis feeds and diagnostics
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/predictions.json data/injuries.json
+          git add data/predictions.json data/injuries.json data/analysis-diagnostics.json
           if git diff --cached --quiet; then
             echo "Analysis feeds unchanged."
           else
-            git commit -m "Refresh provider predictions and team news"
+            git commit -m "Improve forecast coverage and publish analysis diagnostics"
             git push
           fi
