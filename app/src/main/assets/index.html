@@ -58,15 +58,16 @@ footer{text-align:center;color:#697786;font-size:10px;padding:20px 0}
  </section>
  <section class="page" id="picks">
   <div class="section-head"><h2>Qualified predictions</h2><span>69% MINIMUM</span></div>
-  <div class="notice"><strong>Prediction engine not active yet</strong><p>The fixture feed is connected, but ZXBet is not yet calculating probabilities from team form, xG, home/away strength, player availability and confirmed lineups. This screen will only publish a pick after those checks are implemented and verified. No made-up tips.</p></div>
-  <div class="card"><h3>What qualifies as a ZXBet pick?</h3><div class="rule"><span>Estimated probability below 69%</span><b>NO PICK</b></div><div class="rule"><span>69–74%</span><b>CAUTION</b></div><div class="rule"><span>75–84%</span><b>STRONGER</b></div><div class="rule"><span>85%+</span><b>VERIFY EVIDENCE</b></div></div>
+  <div id="pickStatus" class="notice"><strong>Checking forecast feed</strong><p>Only provider forecasts with a displayed probability of 69% or higher can appear here. This is an external provider model, not a guarantee or a separately calibrated ZXBet model.</p></div>
+  <div id="pickList"><div class="empty"><div class="ball">◎</div><b>Loading forecasts</b><p>Checking available match predictions.</p></div></div>
+  <div class="card"><h3>Selection rules</h3><div class="rule"><span>Below 69%</span><b>NO PICK</b></div><div class="rule"><span>69–74%</span><b>CAUTION</b></div><div class="rule"><span>75–84%</span><b>STRONGER</b></div><div class="rule"><span>85%+</span><b>VERIFY EVIDENCE</b></div></div>
  </section>
  <section class="page" id="news">
-  <div class="section-head"><h2>Team news & lineups</h2><span>DATA STATUS</span></div>
-  <div class="notice"><strong>Team-news feed not connected yet</strong><p>Live injury and suspension reports are not currently being retrieved. This section will not label players injured, suspended or available without a verified source.</p></div>
-  <div class="card"><h3>Injuries & suspensions</h3><p><b>Not yet available.</b> A sourced player-availability feed still needs to be connected.</p></div>
-  <div class="card"><h3>Rotation & fatigue</h3><p><b>Not yet calculated.</b> Fixture congestion and likely squad rotation checks are still to be implemented.</p></div>
-  <div class="card"><h3>Confirmed starting XI</h3><p><b>Not yet available.</b> Official lineup monitoring and post-lineup recalculation are still to be implemented.</p></div>
+  <div class="section-head"><h2>Team news & lineups</h2><span>PROVIDER REPORTS</span></div>
+  <div id="newsStatus" class="notice"><strong>Checking injury feed</strong><p>Reports will be shown only when returned by the data provider. Coverage varies by competition.</p></div>
+  <div id="newsList"><div class="empty"><div class="ball">＋</div><b>Loading team news</b><p>Checking reported player absences.</p></div></div>
+  <div class="card"><h3>Rotation & fatigue</h3><p>Not yet calculated. Fixture congestion and likely squad rotation checks remain a separate development task.</p></div>
+  <div class="card"><h3>Confirmed starting XI</h3><p>Official lineups are not yet being monitored automatically. Do not treat missing reports as confirmation that every player is available.</p></div>
  </section>
  <section class="page" id="performance">
   <div class="section-head"><h2>Live fixture statistics</h2><span>FROM VERIFIED FEED</span></div>
@@ -136,8 +137,60 @@ async function loadFixtures(){
   document.getElementById("connectionNotice").innerHTML="<strong>Free football feed connected</strong><p>Verified fixtures are loading. Team news, odds and predictions remain unpublished until their own data-quality checks are complete.</p>";
  }catch(error){showFixtureError(error.message||"Network error. Check your connection and retry.");}
 }
+async function loadAnalysis(){
+ const pickHost=document.getElementById("pickList");
+ try{
+  const r=await fetch("https://raw.githubusercontent.com/doctorzuza22-pixel/zxbet-predictions/main/data/predictions.json?v="+Date.now(),{cache:"no-store"});
+  if(!r.ok) throw new Error("Forecast feed has not been published yet.");
+  const feed=await r.json();
+  const records=Array.isArray(feed.response)?feed.response:[];
+  const qualified=[];
+  records.forEach(record=>{
+   const p=record.analysis?.predictions?.percent||{};
+   const choices=[
+    {key:"home",label:(record.fixture?.teams?.home?.name||"Home")+" win",value:parseFloat(String(p.home??"").replace("%",""))},
+    {key:"draw",label:"Draw",value:parseFloat(String(p.draw??"").replace("%",""))},
+    {key:"away",label:(record.fixture?.teams?.away?.name||"Away")+" win",value:parseFloat(String(p.away??"").replace("%",""))}
+   ].filter(x=>Number.isFinite(x.value)).sort((a,b)=>b.value-a.value);
+   if(choices.length&&choices[0].value>=69){
+    qualified.push({fixture:record.fixture,analysis:record.analysis,choice:choices[0]});
+   }
+  });
+  document.getElementById("pickStatus").innerHTML="<strong>"+qualified.length+" qualifying picks · "+records.length+" forecasts checked</strong><p>Provider model forecast • Generated "+esc(feed.generated_at||"time unavailable")+". Picks are not guarantees. Only the highest 1X2 probability per fixture is shown.</p>";
+  pickHost.innerHTML="";
+  if(!qualified.length){pickHost.innerHTML='<div class="empty"><div class="ball">◎</div><b>No fixtures currently meet 69%</b><p>'+records.length+' provider forecasts checked. No qualifying selection means no pick.</p></div>'; }
+  qualified.sort((a,b)=>b.choice.value-a.choice.value).forEach(item=>{
+   const card=document.createElement("div");card.className="card";
+   const f=item.fixture;const date=f?.fixture?.date?new Date(f.fixture.date).toLocaleString("en-ZA",{weekday:"short",day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"}):"Kickoff TBC";
+   const tier=item.choice.value>=85?"VERIFY EVIDENCE":item.choice.value>=75?"STRONGER":"CAUTION";
+   card.innerHTML='<div class="section-head" style="margin:0 0 8px"><span>'+esc(f?.league?.name||"Competition")+' · '+esc(f?.league?.country||"")+'</span><span>'+tier+'</span></div><h3>'+esc(f?.teams?.home?.name||"Home")+' vs '+esc(f?.teams?.away?.name||"Away")+'</h3><p>'+esc(date)+'</p><div class="rule"><span>Selection</span><b>'+esc(item.choice.label)+'</b></div><div class="rule"><span>Provider probability</span><b>'+item.choice.value.toFixed(1)+'%</b></div>';
+   pickHost.appendChild(card);
+  });
+ }catch(e){
+  document.getElementById("pickStatus").innerHTML="<strong>Forecast feed not available</strong><p>"+esc(e.message)+" Predictions are not invented when the feed is missing.</p>";
+  pickHost.innerHTML='<div class="empty"><div class="ball">◎</div><b>No verified forecast data</b><p>Try again after the daily forecast refresh.</p></div>';
+ }
+ try{
+  const r=await fetch("https://raw.githubusercontent.com/doctorzuza22-pixel/zxbet-predictions/main/data/injuries.json?v="+Date.now(),{cache:"no-store"});
+  if(!r.ok) throw new Error("Team-news feed has not been published yet.");
+  const feed=await r.json();const items=Array.isArray(feed.response)?feed.response:[];
+  document.getElementById("newsStatus").innerHTML="<strong>"+items.length+" player-availability reports</strong><p>Provider feed generated "+esc(feed.generated_at||"time unavailable")+". Competition coverage may vary.</p>";
+  const host=document.getElementById("newsList");host.innerHTML="";
+  if(!items.length) host.innerHTML='<div class="empty"><div class="ball">＋</div><b>No reported absences returned</b><p>This does not prove all players are available. The provider may not cover every competition.</p></div>';
+  items.forEach(item=>{
+   const card=document.createElement("div");card.className="card";
+   card.innerHTML='<h3>'+esc(item.player?.name||"Player report")+' · '+esc(item.team?.name||"Team unavailable")+'</h3><p>'+esc(item.player?.type||"Status unavailable")+' — '+esc(item.player?.reason||"No reason supplied")+'</p><p>'+esc(item.league?.name||"Competition unavailable")+'</p>';
+   host.appendChild(card);
+  });
+ }catch(e){
+  document.getElementById("newsStatus").innerHTML="<strong>Team-news feed not available</strong><p>"+esc(e.message)+" Missing reports must not be interpreted as players being fit.</p>";
+  document.getElementById("newsList").innerHTML="";
+ }
+}
 loadFixtures();
+loadAnalysis();
 setInterval(loadFixtures,30*60*1000);
+setInterval(loadAnalysis,6*60*60*1000);
 </script>
 </body>
 </html>
