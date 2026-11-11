@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-11T00:16:09Z",
+  "generated_at": "2026-11-11T06:18:58Z",
   "response": [
     {
       "fixture": {
@@ -334,16 +334,16 @@
       },
       "score": {
         "halftime": {
-          "home": 4,
-          "away": 3
+          "home": 3,
+          "away": 4
         },
         "fulltime": {
           "home": 4,
           "away": 4
         },
         "extratime": {
-          "home": 0,
-          "away": 0
+          "home": null,
+          "away": null
         },
         "penalty": {
           "home": 2,
@@ -2533,8 +2533,8 @@
           "second": 1794337200
         },
         "venue": {
-          "id": null,
-          "name": "Stade des Costières",
+          "id": 19777,
+          "name": "Stade des Antonins",
           "city": "Nimes"
         },
         "status": {
@@ -3168,9 +3168,9 @@
           "city": null
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
           "extra": null
         }
       },
@@ -3189,27 +3189,27 @@
           "id": 13120,
           "name": "América de Pedrinhas",
           "logo": "https://media.api-sports.io/football/teams/13120.png",
-          "winner": null
+          "winner": false
         },
         "away": {
           "id": 24810,
           "name": "Flamengo SE",
           "logo": "https://media.api-sports.io/football/teams/24810.png",
-          "winner": null
+          "winner": true
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 3
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 3
         },
         "extratime": {
           "home": null,
@@ -4704,8 +4704,8 @@
         },
         "venue": {
           "id": 12288,
-          "name": "Instalaciones de Lezama",
-          "city": "Lezama"
+          "name": "Campo Municipal de Urritxe",
+          "city": "Amorebieta-Etxano"
         },
         "status": {
           "long": "Match Finished",
@@ -4844,8 +4844,8 @@
         },
         "venue": {
           "id": 6807,
-          "name": "Campo de Futbol La Canaleja",
-          "city": "Alcorcon"
+          "name": "Estadio Municipal de Butarque",
+          "city": "Leganes"
         },
         "status": {
           "long": "Match Finished",
@@ -8194,23 +8194,23 @@
     {
       "fixture": {
         "id": 1648690,
-        "referee": null,
+        "referee": "Jose Alexander Ortiz Novoa",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-11T01:30:00+02:00",
         "timestamp": 1794353400,
         "periods": {
           "first": 1794353400,
-          "second": null
+          "second": 1794357000
         },
         "venue": {
-          "id": null,
+          "id": 371,
           "name": "Estadio Metropolitano de Techo",
-          "city": null
+          "city": "Bogota"
         },
         "status": {
-          "long": "First Half",
-          "short": "1H",
-          "elapsed": 45,
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
           "extra": null
         }
       },
@@ -8248,8 +8248,8 @@
           "away": 2
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 2
         },
         "extratime": {
           "home": null,
@@ -8270,7 +8270,7 @@
         "timestamp": 1794355200,
         "periods": {
           "first": 1794355200,
-          "second": null
+          "second": 1794358800
         },
         "venue": {
           "id": 1636,
@@ -8278,9 +8278,9 @@
           "city": "Montevideo"
         },
         "status": {
-          "long": "First Half",
-          "short": "1H",
-          "elapsed": 15,
+          "long": "Match Finished",
+          "short": "PEN",
+          "elapsed": 120,
           "extra": null
         }
       },
@@ -8299,35 +8299,35 @@
           "id": 2358,
           "name": "Liverpool Montevideo",
           "logo": "https://media.api-sports.io/football/teams/2358.png",
-          "winner": null
+          "winner": false
         },
         "away": {
           "id": 2353,
           "name": "Juventud",
           "logo": "https://media.api-sports.io/football/teams/2353.png",
-          "winner": null
+          "winner": true
         }
       },
       "goals": {
-        "home": 0,
-        "away": 0
+        "home": 1,
+        "away": 1
       },
       "score": {
         "halftime": {
           "home": 0,
-          "away": 0
+          "away": 1
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         },
         "extratime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
         "penalty": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 3
         }
       }
     },
@@ -8479,19 +8479,19 @@
         "date": "2026-11-11T03:00:00+02:00",
         "timestamp": 1794358800,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1794358800,
+          "second": 1794362400
         },
         "venue": {
-          "id": null,
-          "name": null,
-          "city": null
+          "id": 3288,
+          "name": "Estadio Jorge Calero Suarez",
+          "city": "Metapan"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 10
         }
       },
       "league": {
@@ -8509,27 +8509,27 @@
           "id": 4304,
           "name": "Isidro Metapán",
           "logo": "https://media.api-sports.io/football/teams/4304.png",
-          "winner": null
+          "winner": true
         },
         "away": {
           "id": 19763,
           "name": "Platense",
           "logo": "https://media.api-sports.io/football/teams/19763.png",
-          "winner": null
+          "winner": false
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 2,
+        "away": 1
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 1
         },
         "extratime": {
           "home": null,
@@ -8544,13 +8544,13 @@
     {
       "fixture": {
         "id": 1649463,
-        "referee": null,
+        "referee": "M. Perez Comellas",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-11T03:00:00+02:00",
         "timestamp": 1794358800,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1794358800,
+          "second": 1794362400
         },
         "venue": {
           "id": null,
@@ -8558,10 +8558,10 @@
           "city": "Mexico City"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 7
         }
       },
       "league": {
@@ -8579,27 +8579,27 @@
           "id": 14870,
           "name": "Pumas UNAM W",
           "logo": "https://media.api-sports.io/football/teams/14870.png",
-          "winner": null
+          "winner": false
         },
         "away": {
           "id": 14884,
           "name": "Tigres UANL W",
           "logo": "https://media.api-sports.io/football/teams/14884.png",
-          "winner": null
+          "winner": true
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 2,
+        "away": 3
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 2
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 3
         },
         "extratime": {
           "home": null,
@@ -8619,8 +8619,8 @@
         "date": "2026-11-11T03:30:00+02:00",
         "timestamp": 1794360600,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1794360600,
+          "second": 1794364200
         },
         "venue": {
           "id": 384,
@@ -8628,10 +8628,10 @@
           "city": "Manizales"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 6
         }
       },
       "league": {
@@ -8659,17 +8659,17 @@
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 1
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 0
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 1
         },
         "extratime": {
           "home": null,
@@ -8684,13 +8684,13 @@
     {
       "fixture": {
         "id": 1649464,
-        "referee": null,
+        "referee": "E. Nevarez",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-11T05:00:00+02:00",
         "timestamp": 1794366000,
         "periods": {
-          "first": null,
-          "second": null
+          "first": 1794366000,
+          "second": 1794369600
         },
         "venue": {
           "id": null,
@@ -8698,10 +8698,10 @@
           "city": null
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
+          "long": "Match Finished",
+          "short": "FT",
+          "elapsed": 90,
+          "extra": 4
         }
       },
       "league": {
@@ -8729,17 +8729,17 @@
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       },
       "score": {
         "halftime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
         "fulltime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
         "extratime": {
           "home": null,
@@ -9324,7 +9324,7 @@
         },
         "venue": {
           "id": null,
-          "name": "Chernihiv Arena",
+          "name": "Chernihiv Stadium",
           "city": "Chernihiv"
         },
         "status": {
@@ -11498,8 +11498,8 @@
           "city": null
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
+          "long": "Match Suspended",
+          "short": "SUSP",
           "elapsed": null,
           "extra": null
         }
@@ -11519,18 +11519,18 @@
           "id": 23080,
           "name": "Obolon' Kyiv U19",
           "logo": "https://media.api-sports.io/football/teams/23080.png",
-          "winner": null
+          "winner": false
         },
         "away": {
           "id": 23084,
           "name": "Zhytomyr U19",
           "logo": "https://media.api-sports.io/football/teams/23084.png",
-          "winner": null
+          "winner": true
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 1
       },
       "score": {
         "halftime": {
@@ -11554,7 +11554,7 @@
     {
       "fixture": {
         "id": 1635786,
-        "referee": null,
+        "referee": "K. Umudlu",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-11T13:00:00+02:00",
         "timestamp": 1794394800,
@@ -11624,7 +11624,7 @@
     {
       "fixture": {
         "id": 1635789,
-        "referee": null,
+        "referee": "T. Owen",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-11T13:00:00+02:00",
         "timestamp": 1794394800,
@@ -11763,78 +11763,8 @@
     },
     {
       "fixture": {
-        "id": 1644890,
-        "referee": null,
-        "timezone": "Africa/Johannesburg",
-        "date": "2026-11-11T13:00:00+02:00",
-        "timestamp": 1794394800,
-        "periods": {
-          "first": null,
-          "second": null
-        },
-        "venue": {
-          "id": null,
-          "name": null,
-          "city": null
-        },
-        "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
-        }
-      },
-      "league": {
-        "id": 424,
-        "name": "Ligue 1",
-        "country": "Congo-DR",
-        "logo": "https://media.api-sports.io/football/leagues/424.png",
-        "flag": "https://media.api-sports.io/flags/cg.svg",
-        "season": 2026,
-        "round": "Regular Season - 5",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 26886,
-          "name": "CS Manika",
-          "logo": "https://media.api-sports.io/football/teams/26886.png",
-          "winner": null
-        },
-        "away": {
-          "id": 28512,
-          "name": "Butras",
-          "logo": "https://media.api-sports.io/football/teams/28512.png",
-          "winner": null
-        }
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "score": {
-        "halftime": {
-          "home": null,
-          "away": null
-        },
-        "fulltime": {
-          "home": null,
-          "away": null
-        },
-        "extratime": {
-          "home": null,
-          "away": null
-        },
-        "penalty": {
-          "home": null,
-          "away": null
-        }
-      }
-    },
-    {
-      "fixture": {
         "id": 1635757,
-        "referee": null,
+        "referee": "R. Hensgens",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-11T13:15:00+02:00",
         "timestamp": 1794395700,
@@ -12054,7 +11984,7 @@
         },
         "venue": {
           "id": null,
-          "name": "Central City Stadium",
+          "name": "Central Sport Complex",
           "city": "Orsha"
         },
         "status": {
@@ -12884,7 +12814,7 @@
     {
       "fixture": {
         "id": 1635772,
-        "referee": null,
+        "referee": "A. Culina",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-11T14:00:00+02:00",
         "timestamp": 1794398400,
@@ -12995,76 +12925,6 @@
           "id": 10375,
           "name": "Northern Ireland U19",
           "logo": "https://media.api-sports.io/football/teams/10375.png",
-          "winner": null
-        }
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "score": {
-        "halftime": {
-          "home": null,
-          "away": null
-        },
-        "fulltime": {
-          "home": null,
-          "away": null
-        },
-        "extratime": {
-          "home": null,
-          "away": null
-        },
-        "penalty": {
-          "home": null,
-          "away": null
-        }
-      }
-    },
-    {
-      "fixture": {
-        "id": 1635824,
-        "referee": null,
-        "timezone": "Africa/Johannesburg",
-        "date": "2026-11-11T14:00:00+02:00",
-        "timestamp": 1794398400,
-        "periods": {
-          "first": null,
-          "second": null
-        },
-        "venue": {
-          "id": null,
-          "name": "Stadion Blagoj Istatov",
-          "city": "Strumica"
-        },
-        "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
-        }
-      },
-      "league": {
-        "id": 893,
-        "name": "UEFA U19 Championship - Qualification",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/893.png",
-        "flag": null,
-        "season": 2027,
-        "round": "Group Stage",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 10350,
-          "name": "Switzerland U19",
-          "logo": "https://media.api-sports.io/football/teams/10350.png",
-          "winner": null
-        },
-        "away": {
-          "id": 10372,
-          "name": "Malta U19",
-          "logo": "https://media.api-sports.io/football/teams/10372.png",
           "winner": null
         }
       },
@@ -13373,6 +13233,76 @@
     },
     {
       "fixture": {
+        "id": 1644892,
+        "referee": null,
+        "timezone": "Africa/Johannesburg",
+        "date": "2026-11-11T14:00:00+02:00",
+        "timestamp": 1794398400,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": null
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 424,
+        "name": "Ligue 1",
+        "country": "Congo-DR",
+        "logo": "https://media.api-sports.io/football/leagues/424.png",
+        "flag": "https://media.api-sports.io/flags/cg.svg",
+        "season": 2026,
+        "round": "Regular Season - 5",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 15285,
+          "name": "Blessing",
+          "logo": "https://media.api-sports.io/football/teams/15285.png",
+          "winner": null
+        },
+        "away": {
+          "id": 27053,
+          "name": "Saint-Luc",
+          "logo": "https://media.api-sports.io/football/teams/27053.png",
+          "winner": null
+        }
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "score": {
+        "halftime": {
+          "home": null,
+          "away": null
+        },
+        "fulltime": {
+          "home": null,
+          "away": null
+        },
+        "extratime": {
+          "home": null,
+          "away": null
+        },
+        "penalty": {
+          "home": null,
+          "away": null
+        }
+      }
+    },
+    {
+      "fixture": {
         "id": 1646210,
         "referee": null,
         "timezone": "Africa/Johannesburg",
@@ -13454,8 +13384,8 @@
         },
         "venue": {
           "id": null,
-          "name": null,
-          "city": null
+          "name": "Ladislav Ganczner Football stadium",
+          "city": "Nove Zamky"
         },
         "status": {
           "long": "Not Started",
@@ -14144,7 +14074,7 @@
     {
       "fixture": {
         "id": 1635769,
-        "referee": null,
+        "referee": "P. Gryckiewicz",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-11T15:00:00+02:00",
         "timestamp": 1794402000,
@@ -14284,7 +14214,7 @@
     {
       "fixture": {
         "id": 1635820,
-        "referee": null,
+        "referee": "M. Boskovic",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-11T15:00:00+02:00",
         "timestamp": 1794402000,
@@ -14633,7 +14563,7 @@
     },
     {
       "fixture": {
-        "id": 1644892,
+        "id": 1644890,
         "referee": null,
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-11T15:00:00+02:00",
@@ -14666,15 +14596,15 @@
       },
       "teams": {
         "home": {
-          "id": 15285,
-          "name": "Blessing",
-          "logo": "https://media.api-sports.io/football/teams/15285.png",
+          "id": 26886,
+          "name": "CS Manika",
+          "logo": "https://media.api-sports.io/football/teams/26886.png",
           "winner": null
         },
         "away": {
-          "id": 27053,
-          "name": "Saint-Luc",
-          "logo": "https://media.api-sports.io/football/teams/27053.png",
+          "id": 28512,
+          "name": "Butras",
+          "logo": "https://media.api-sports.io/football/teams/28512.png",
           "winner": null
         }
       },
@@ -15068,8 +14998,8 @@
           "city": null
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
+          "long": "Match Suspended",
+          "short": "SUSP",
           "elapsed": null,
           "extra": 7
         }
@@ -15089,18 +15019,18 @@
           "id": 874,
           "name": "Trastevere",
           "logo": "https://media.api-sports.io/football/teams/874.png",
-          "winner": null
+          "winner": false
         },
         "away": {
           "id": 22300,
           "name": "Anzio",
           "logo": "https://media.api-sports.io/football/teams/22300.png",
-          "winner": null
+          "winner": true
         }
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 1
       },
       "score": {
         "halftime": {
@@ -15404,7 +15334,7 @@
     {
       "fixture": {
         "id": 1635784,
-        "referee": null,
+        "referee": "M. Kapraly",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-11T16:00:00+02:00",
         "timestamp": 1794405600,
@@ -15445,6 +15375,76 @@
           "id": 10364,
           "name": "Greece U19",
           "logo": "https://media.api-sports.io/football/teams/10364.png",
+          "winner": null
+        }
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "score": {
+        "halftime": {
+          "home": null,
+          "away": null
+        },
+        "fulltime": {
+          "home": null,
+          "away": null
+        },
+        "extratime": {
+          "home": null,
+          "away": null
+        },
+        "penalty": {
+          "home": null,
+          "away": null
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": 1635824,
+        "referee": null,
+        "timezone": "Africa/Johannesburg",
+        "date": "2026-11-11T16:00:00+02:00",
+        "timestamp": 1794405600,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": "Stadion Blagoj Istatov",
+          "city": "Strumica"
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 893,
+        "name": "UEFA U19 Championship - Qualification",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/893.png",
+        "flag": null,
+        "season": 2027,
+        "round": "Group Stage",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 10350,
+          "name": "Switzerland U19",
+          "logo": "https://media.api-sports.io/football/teams/10350.png",
+          "winner": null
+        },
+        "away": {
+          "id": 10372,
+          "name": "Malta U19",
+          "logo": "https://media.api-sports.io/football/teams/10372.png",
           "winner": null
         }
       },
@@ -15698,8 +15698,8 @@
           "city": "Kinshasa"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
+          "long": "Match Postponed",
+          "short": "PST",
           "elapsed": null,
           "extra": null
         }
@@ -15964,7 +15964,7 @@
     {
       "fixture": {
         "id": 1635793,
-        "referee": null,
+        "referee": "F. Lata",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-11T16:30:00+02:00",
         "timestamp": 1794407400,
@@ -16174,7 +16174,7 @@
     {
       "fixture": {
         "id": 1635819,
-        "referee": null,
+        "referee": "M. Rusz",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-11T17:00:00+02:00",
         "timestamp": 1794409200,
@@ -16594,7 +16594,7 @@
     {
       "fixture": {
         "id": 1635809,
-        "referee": null,
+        "referee": "O. Reitala",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-11T17:45:00+02:00",
         "timestamp": 1794411900,
@@ -17643,76 +17643,6 @@
     },
     {
       "fixture": {
-        "id": 1599995,
-        "referee": null,
-        "timezone": "Africa/Johannesburg",
-        "date": "2026-11-11T19:00:00+02:00",
-        "timestamp": 1794416400,
-        "periods": {
-          "first": null,
-          "second": null
-        },
-        "venue": {
-          "id": null,
-          "name": null,
-          "city": null
-        },
-        "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
-        }
-      },
-      "league": {
-        "id": 69,
-        "name": "National 2 - Group C",
-        "country": "France",
-        "logo": "https://media.api-sports.io/football/leagues/69.png",
-        "flag": "https://media.api-sports.io/flags/fr.svg",
-        "season": 2026,
-        "round": "Group C - 10",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 3009,
-          "name": "Andrézieux",
-          "logo": "https://media.api-sports.io/football/teams/3009.png",
-          "winner": null
-        },
-        "away": {
-          "id": 107,
-          "name": "Chateauroux",
-          "logo": "https://media.api-sports.io/football/teams/107.png",
-          "winner": null
-        }
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "score": {
-        "halftime": {
-          "home": null,
-          "away": null
-        },
-        "fulltime": {
-          "home": null,
-          "away": null
-        },
-        "extratime": {
-          "home": null,
-          "away": null
-        },
-        "penalty": {
-          "home": null,
-          "away": null
-        }
-      }
-    },
-    {
-      "fixture": {
         "id": 1600002,
         "referee": null,
         "timezone": "Africa/Johannesburg",
@@ -17854,7 +17784,7 @@
     {
       "fixture": {
         "id": 1635753,
-        "referee": null,
+        "referee": "A. Kyriakos",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-11T19:00:00+02:00",
         "timestamp": 1794416400,
@@ -17924,7 +17854,7 @@
     {
       "fixture": {
         "id": 1635781,
-        "referee": null,
+        "referee": "M. Busquets",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-11T19:00:00+02:00",
         "timestamp": 1794416400,
@@ -17994,7 +17924,7 @@
     {
       "fixture": {
         "id": 1635808,
-        "referee": null,
+        "referee": "B. Csonka",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-11T19:00:00+02:00",
         "timestamp": 1794416400,
@@ -18344,7 +18274,7 @@
     {
       "fixture": {
         "id": 1645407,
-        "referee": null,
+        "referee": "P. Orel",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-11T19:00:00+02:00",
         "timestamp": 1794416400,
@@ -19883,6 +19813,76 @@
     },
     {
       "fixture": {
+        "id": 1649443,
+        "referee": null,
+        "timezone": "Africa/Johannesburg",
+        "date": "2026-11-11T20:00:00+02:00",
+        "timestamp": 1794420000,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": null
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 622,
+        "name": "Pernambucano - 1",
+        "country": "Brazil",
+        "logo": "https://media.api-sports.io/football/leagues/622.png",
+        "flag": "https://media.api-sports.io/flags/br.svg",
+        "season": 2027,
+        "round": "Semi-finals",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 12289,
+          "name": "Ypiranga PE",
+          "logo": "https://media.api-sports.io/football/teams/12289.png",
+          "winner": null
+        },
+        "away": {
+          "id": 9995,
+          "name": "Afogados",
+          "logo": "https://media.api-sports.io/football/teams/9995.png",
+          "winner": null
+        }
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "score": {
+        "halftime": {
+          "home": null,
+          "away": null
+        },
+        "fulltime": {
+          "home": null,
+          "away": null
+        },
+        "extratime": {
+          "home": null,
+          "away": null
+        },
+        "penalty": {
+          "home": null,
+          "away": null
+        }
+      }
+    },
+    {
+      "fixture": {
         "id": 1572696,
         "referee": null,
         "timezone": "Africa/Johannesburg",
@@ -19968,8 +19968,8 @@
           "city": null
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
+          "long": "Match Postponed",
+          "short": "PST",
           "elapsed": null,
           "extra": null
         }
@@ -21004,7 +21004,7 @@
     {
       "fixture": {
         "id": 1635777,
-        "referee": null,
+        "referee": "R. Vidican",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-11T21:00:00+02:00",
         "timestamp": 1794423600,
@@ -21045,146 +21045,6 @@
           "id": 10333,
           "name": "Finland U19",
           "logo": "https://media.api-sports.io/football/teams/10333.png",
-          "winner": null
-        }
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "score": {
-        "halftime": {
-          "home": null,
-          "away": null
-        },
-        "fulltime": {
-          "home": null,
-          "away": null
-        },
-        "extratime": {
-          "home": null,
-          "away": null
-        },
-        "penalty": {
-          "home": null,
-          "away": null
-        }
-      }
-    },
-    {
-      "fixture": {
-        "id": 1649440,
-        "referee": null,
-        "timezone": "Africa/Johannesburg",
-        "date": "2026-11-11T21:00:00+02:00",
-        "timestamp": 1794423600,
-        "periods": {
-          "first": null,
-          "second": null
-        },
-        "venue": {
-          "id": null,
-          "name": null,
-          "city": null
-        },
-        "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
-        }
-      },
-      "league": {
-        "id": 622,
-        "name": "Pernambucano - 1",
-        "country": "Brazil",
-        "logo": "https://media.api-sports.io/football/leagues/622.png",
-        "flag": "https://media.api-sports.io/flags/br.svg",
-        "season": 2027,
-        "round": "Semi-finals",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 2210,
-          "name": "Central SC",
-          "logo": "https://media.api-sports.io/football/teams/2210.png",
-          "winner": null
-        },
-        "away": {
-          "id": 1205,
-          "name": "Salgueiro",
-          "logo": "https://media.api-sports.io/football/teams/1205.png",
-          "winner": null
-        }
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "score": {
-        "halftime": {
-          "home": null,
-          "away": null
-        },
-        "fulltime": {
-          "home": null,
-          "away": null
-        },
-        "extratime": {
-          "home": null,
-          "away": null
-        },
-        "penalty": {
-          "home": null,
-          "away": null
-        }
-      }
-    },
-    {
-      "fixture": {
-        "id": 1649441,
-        "referee": null,
-        "timezone": "Africa/Johannesburg",
-        "date": "2026-11-11T21:00:00+02:00",
-        "timestamp": 1794423600,
-        "periods": {
-          "first": null,
-          "second": null
-        },
-        "venue": {
-          "id": null,
-          "name": null,
-          "city": null
-        },
-        "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
-        }
-      },
-      "league": {
-        "id": 622,
-        "name": "Pernambucano - 1",
-        "country": "Brazil",
-        "logo": "https://media.api-sports.io/football/leagues/622.png",
-        "flag": "https://media.api-sports.io/flags/br.svg",
-        "season": 2027,
-        "round": "Semi-finals",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 28463,
-          "name": "Facilnet",
-          "logo": "https://media.api-sports.io/football/teams/28463.png",
-          "winner": null
-        },
-        "away": {
-          "id": 7841,
-          "name": "Belo Jardim",
-          "logo": "https://media.api-sports.io/football/teams/7841.png",
           "winner": null
         }
       },
@@ -21255,76 +21115,6 @@
           "id": 25082,
           "name": "Cha Grande",
           "logo": "https://media.api-sports.io/football/teams/25082.png",
-          "winner": null
-        }
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "score": {
-        "halftime": {
-          "home": null,
-          "away": null
-        },
-        "fulltime": {
-          "home": null,
-          "away": null
-        },
-        "extratime": {
-          "home": null,
-          "away": null
-        },
-        "penalty": {
-          "home": null,
-          "away": null
-        }
-      }
-    },
-    {
-      "fixture": {
-        "id": 1649443,
-        "referee": null,
-        "timezone": "Africa/Johannesburg",
-        "date": "2026-11-11T21:00:00+02:00",
-        "timestamp": 1794423600,
-        "periods": {
-          "first": null,
-          "second": null
-        },
-        "venue": {
-          "id": null,
-          "name": null,
-          "city": null
-        },
-        "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
-        }
-      },
-      "league": {
-        "id": 622,
-        "name": "Pernambucano - 1",
-        "country": "Brazil",
-        "logo": "https://media.api-sports.io/football/leagues/622.png",
-        "flag": "https://media.api-sports.io/flags/br.svg",
-        "season": 2027,
-        "round": "Semi-finals",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 12289,
-          "name": "Ypiranga PE",
-          "logo": "https://media.api-sports.io/football/teams/12289.png",
-          "winner": null
-        },
-        "away": {
-          "id": 9995,
-          "name": "Afogados",
-          "logo": "https://media.api-sports.io/football/teams/9995.png",
           "winner": null
         }
       },
@@ -22208,8 +21998,8 @@
           "city": "Cali"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
+          "long": "Match Postponed",
+          "short": "PST",
           "elapsed": null,
           "extra": null
         }
@@ -22278,8 +22068,8 @@
           "city": "Envigado"
         },
         "status": {
-          "long": "Not Started",
-          "short": "NS",
+          "long": "Match Postponed",
+          "short": "PST",
           "elapsed": null,
           "extra": null
         }
@@ -22683,6 +22473,146 @@
     },
     {
       "fixture": {
+        "id": 1649440,
+        "referee": null,
+        "timezone": "Africa/Johannesburg",
+        "date": "2026-11-12T01:00:00+02:00",
+        "timestamp": 1794438000,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": null
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 622,
+        "name": "Pernambucano - 1",
+        "country": "Brazil",
+        "logo": "https://media.api-sports.io/football/leagues/622.png",
+        "flag": "https://media.api-sports.io/flags/br.svg",
+        "season": 2027,
+        "round": "Semi-finals",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 2210,
+          "name": "Central SC",
+          "logo": "https://media.api-sports.io/football/teams/2210.png",
+          "winner": null
+        },
+        "away": {
+          "id": 1205,
+          "name": "Salgueiro",
+          "logo": "https://media.api-sports.io/football/teams/1205.png",
+          "winner": null
+        }
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "score": {
+        "halftime": {
+          "home": null,
+          "away": null
+        },
+        "fulltime": {
+          "home": null,
+          "away": null
+        },
+        "extratime": {
+          "home": null,
+          "away": null
+        },
+        "penalty": {
+          "home": null,
+          "away": null
+        }
+      }
+    },
+    {
+      "fixture": {
+        "id": 1649441,
+        "referee": null,
+        "timezone": "Africa/Johannesburg",
+        "date": "2026-11-12T01:00:00+02:00",
+        "timestamp": 1794438000,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": null,
+          "city": null
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 622,
+        "name": "Pernambucano - 1",
+        "country": "Brazil",
+        "logo": "https://media.api-sports.io/football/leagues/622.png",
+        "flag": "https://media.api-sports.io/flags/br.svg",
+        "season": 2027,
+        "round": "Semi-finals",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 28463,
+          "name": "Facilnet",
+          "logo": "https://media.api-sports.io/football/teams/28463.png",
+          "winner": null
+        },
+        "away": {
+          "id": 7841,
+          "name": "Belo Jardim",
+          "logo": "https://media.api-sports.io/football/teams/7841.png",
+          "winner": null
+        }
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "score": {
+        "halftime": {
+          "home": null,
+          "away": null
+        },
+        "fulltime": {
+          "home": null,
+          "away": null
+        },
+        "extratime": {
+          "home": null,
+          "away": null
+        },
+        "penalty": {
+          "home": null,
+          "away": null
+        }
+      }
+    },
+    {
+      "fixture": {
         "id": 1557232,
         "referee": null,
         "timezone": "Africa/Johannesburg",
@@ -22894,7 +22824,7 @@
     {
       "fixture": {
         "id": 1649465,
-        "referee": null,
+        "referee": "M. Ximena",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-12T03:00:00+02:00",
         "timestamp": 1794445200,
@@ -23034,7 +22964,7 @@
     {
       "fixture": {
         "id": 1649466,
-        "referee": null,
+        "referee": "F. Lopez",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-12T05:00:00+02:00",
         "timestamp": 1794452400,
@@ -23943,6 +23873,76 @@
     },
     {
       "fixture": {
+        "id": 1635249,
+        "referee": null,
+        "timezone": "Africa/Johannesburg",
+        "date": "2026-11-12T15:00:00+02:00",
+        "timestamp": 1794488400,
+        "periods": {
+          "first": null,
+          "second": null
+        },
+        "venue": {
+          "id": null,
+          "name": "Rwamwanja stadium",
+          "city": null
+        },
+        "status": {
+          "long": "Not Started",
+          "short": "NS",
+          "elapsed": null,
+          "extra": null
+        }
+      },
+      "league": {
+        "id": 585,
+        "name": "Premier League",
+        "country": "Uganda",
+        "logo": "https://media.api-sports.io/football/leagues/585.png",
+        "flag": "https://media.api-sports.io/flags/ug.svg",
+        "season": 2026,
+        "round": "Regular Season - 2",
+        "standings": true
+      },
+      "teams": {
+        "home": {
+          "id": 28320,
+          "name": "Kigezi HomeBoyz",
+          "logo": "https://media.api-sports.io/football/teams/28320.png",
+          "winner": null
+        },
+        "away": {
+          "id": 8114,
+          "name": "Vipers",
+          "logo": "https://media.api-sports.io/football/teams/8114.png",
+          "winner": null
+        }
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "score": {
+        "halftime": {
+          "home": null,
+          "away": null
+        },
+        "fulltime": {
+          "home": null,
+          "away": null
+        },
+        "extratime": {
+          "home": null,
+          "away": null
+        },
+        "penalty": {
+          "home": null,
+          "away": null
+        }
+      }
+    },
+    {
+      "fixture": {
         "id": 1643178,
         "referee": null,
         "timezone": "Africa/Johannesburg",
@@ -24014,7 +24014,7 @@
     {
       "fixture": {
         "id": 1645400,
-        "referee": null,
+        "referee": "N. Verboomen",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-12T15:00:00+02:00",
         "timestamp": 1794488400,
@@ -25074,8 +25074,8 @@
         },
         "venue": {
           "id": null,
-          "name": null,
-          "city": null
+          "name": "Stadio Euganeo",
+          "city": "Padova"
         },
         "status": {
           "long": "Not Started",
@@ -25414,7 +25414,7 @@
     {
       "fixture": {
         "id": 1528958,
-        "referee": null,
+        "referee": "Sandro Schärer",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-12T19:00:00+02:00",
         "timestamp": 1794502800,
@@ -25484,7 +25484,7 @@
     {
       "fixture": {
         "id": 1528959,
-        "referee": null,
+        "referee": "Orel Grinfeld",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-12T19:00:00+02:00",
         "timestamp": 1794502800,
@@ -25834,7 +25834,7 @@
     {
       "fixture": {
         "id": 1638295,
-        "referee": null,
+        "referee": "Ivana Martincic",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-12T19:45:00+02:00",
         "timestamp": 1794505500,
@@ -27654,7 +27654,7 @@
     {
       "fixture": {
         "id": 1528960,
-        "referee": null,
+        "referee": "Istvan Kovacs",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-12T21:45:00+02:00",
         "timestamp": 1794512700,
@@ -27724,7 +27724,7 @@
     {
       "fixture": {
         "id": 1528961,
-        "referee": null,
+        "referee": "Nikola Dabanovic",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-12T21:45:00+02:00",
         "timestamp": 1794512700,
@@ -27794,7 +27794,7 @@
     {
       "fixture": {
         "id": 1528962,
-        "referee": null,
+        "referee": "Morten Krogh",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-12T21:45:00+02:00",
         "timestamp": 1794512700,
@@ -27864,7 +27864,7 @@
     {
       "fixture": {
         "id": 1528963,
-        "referee": null,
+        "referee": "Joao Pinheiro",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-12T21:45:00+02:00",
         "timestamp": 1794512700,
@@ -27934,7 +27934,7 @@
     {
       "fixture": {
         "id": 1528964,
-        "referee": null,
+        "referee": "Goga Kikacheishvili",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-12T21:45:00+02:00",
         "timestamp": 1794512700,
@@ -28004,7 +28004,7 @@
     {
       "fixture": {
         "id": 1545613,
-        "referee": null,
+        "referee": "Jerome Brisard",
         "timezone": "Africa/Johannesburg",
         "date": "2026-11-12T21:45:00+02:00",
         "timestamp": 1794512700,
@@ -28535,76 +28535,6 @@
           "id": 1142,
           "name": "Deportes Tolima",
           "logo": "https://media.api-sports.io/football/teams/1142.png",
-          "winner": null
-        }
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "score": {
-        "halftime": {
-          "home": null,
-          "away": null
-        },
-        "fulltime": {
-          "home": null,
-          "away": null
-        },
-        "extratime": {
-          "home": null,
-          "away": null
-        },
-        "penalty": {
-          "home": null,
-          "away": null
-        }
-      }
-    },
-    {
-      "fixture": {
-        "id": 1549868,
-        "referee": null,
-        "timezone": "Africa/Johannesburg",
-        "date": "2026-11-12T23:00:00+02:00",
-        "timestamp": 1794517200,
-        "periods": {
-          "first": null,
-          "second": null
-        },
-        "venue": {
-          "id": null,
-          "name": "Estadio Departamental Libertad",
-          "city": "Pasto"
-        },
-        "status": {
-          "long": "Not Started",
-          "short": "NS",
-          "elapsed": null,
-          "extra": null
-        }
-      },
-      "league": {
-        "id": 239,
-        "name": "Primera A",
-        "country": "Colombia",
-        "logo": "https://media.api-sports.io/football/leagues/239.png",
-        "flag": "https://media.api-sports.io/flags/co.svg",
-        "season": 2026,
-        "round": "Clausura - 19",
-        "standings": true
-      },
-      "teams": {
-        "home": {
-          "id": 1126,
-          "name": "Deportivo Pasto",
-          "logo": "https://media.api-sports.io/football/teams/1126.png",
-          "winner": null
-        },
-        "away": {
-          "id": 1135,
-          "name": "Junior",
-          "logo": "https://media.api-sports.io/football/teams/1135.png",
           "winner": null
         }
       },
