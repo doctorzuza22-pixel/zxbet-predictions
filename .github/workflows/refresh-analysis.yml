@@ -1,6 +1,10 @@
 name: Refresh predictions and team news
 
 on:
+  push:
+    paths:
+      - '.github/workflows/refresh-analysis.yml'
+      - 'data/fixtures.json'
   workflow_dispatch:
   schedule:
     - cron: '43 1 * * *'
