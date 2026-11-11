@@ -21,7 +21,7 @@ nav{position:fixed;bottom:0;left:0;right:0;background:#0d141d;border-top:1px sol
 nav button{background:none;border:0;color:#8996a4;font-size:10px;padding:5px 2px;min-width:19%;font-weight:600}nav button.active{color:var(--gold)}nav button .ico{display:block;font-size:18px;margin-bottom:4px}
 .page{display:none}.page.active{display:block}.empty{padding:28px 16px;text-align:center;background:var(--panel);border:1px dashed #344252;border-radius:13px}.empty .ball{font-size:27px;margin-bottom:10px}.empty b{display:block;font-size:13px;margin-bottom:7px}.empty p{font-size:12px;line-height:1.5;color:var(--muted);margin:0}
 .tag{display:inline-block;border-radius:5px;background:#1b2937;color:#b7c5d2;padding:5px 7px;font-size:10px;margin:3px 3px 0 0}
-footer{text-align:center;color:#697786;font-size:10px;padding:20px 0}
+footer{text-align:center;color:#697786;font-size:10px;padding:20px 0}\n.match-open{width:100%;margin-top:12px;padding:11px;border:1px solid #6a5731;border-radius:9px;background:#202a35;color:var(--gold);font-weight:700;font-size:12px}.detail-panel{background:#101923;border:1px solid #6a5731;border-radius:14px;padding:15px;margin:10px 0 14px}.detail-panel h3{margin:0 0 8px;font-size:15px}.detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}.detail-cell{background:#182432;border:1px solid #2a3b4b;border-radius:9px;padding:10px}.detail-cell small{display:block;color:var(--muted);font-size:10px;margin-bottom:5px}.detail-cell b{font-size:14px;color:var(--gold)}.detail-note{font-size:11px;color:var(--muted);line-height:1.5;margin-top:10px}
 </style>
 </head>
 <body>
@@ -54,7 +54,7 @@ footer{text-align:center;color:#697786;font-size:10px;padding:20px 0}
  </section>
  <section class="page" id="fixtures">
   <div class="section-head"><h2>Worldwide fixtures</h2><span>MON–SUN</span></div>
-  <div class="section-head"><h2 id="fixtureStatus">Connecting to free football feed…</h2><span id="fixtureUpdated">—</span></div><div id="fixtureList"><div class="empty"><div class="ball">⚽</div><b>Loading verified fixtures</b><p>ZXBet is checking the latest published fixture feed.</p></div></div>
+  <div class="section-head"><h2 id="fixtureStatus">Connecting to free football feed…</h2><span id="fixtureUpdated">—</span></div><div id="matchDetail"></div><div id="fixtureList"><div class="empty"><div class="ball">⚽</div><b>Loading verified fixtures</b><p>ZXBet is checking the latest published fixture feed.</p></div></div>
  </section>
  <section class="page" id="picks">
   <div class="section-head"><h2>Qualified predictions</h2><span>69% MINIMUM</span></div>
@@ -96,7 +96,7 @@ document.querySelectorAll("nav button").forEach(button=>button.addEventListener(
  document.getElementById("pageKicker").textContent=labels[id];
  window.scrollTo(0,0);
 }));
-const FEED_URL="https://raw.githubusercontent.com/doctorzuza22-pixel/zxbet-predictions/main/data/fixtures.json";
+const FEED_URL="https://raw.githubusercontent.com/doctorzuza22-pixel/zxbet-predictions/main/data/fixtures.json";\nlet predictionByFixture={};\nfunction openMatchDetails(id){const item=predictionByFixture[String(id)];const host=document.getElementById("matchDetail");if(!item){host.innerHTML='<div class="detail-panel"><h3>Match analysis not available yet</h3><p class="detail-note">No provider forecast was returned for this fixture. Exact score, goals markets and card markets are not fabricated.</p></div>';return;}const p=item.analysis?.predictions||{};const pct=p.percent||{};const home=item.fixture?.teams?.home?.name||"Home";const away=item.fixture?.teams?.away?.name||"Away";const goalLine=p.under_over||"Not supplied";const hg=p.goals?.home||"Not supplied";const ag=p.goals?.away||"Not supplied";host.innerHTML='<div class="detail-panel"><h3>'+esc(home)+' vs '+esc(away)+' — Match analysis</h3><div class="detail-grid"><div class="detail-cell"><small>Home win</small><b>'+esc(pct.home||"—") +'</b></div><div class="detail-cell"><small>Draw</small><b>'+esc(pct.draw||"—") +'</b></div><div class="detail-cell"><small>Away win</small><b>'+esc(pct.away||"—") +'</b></div><div class="detail-cell"><small>Provider goals line</small><b>'+esc(goalLine)+'</b></div><div class="detail-cell"><small>Home team goals</small><b>'+esc(hg)+'</b></div><div class="detail-cell"><small>Away team goals</small><b>'+esc(ag)+'</b></div></div><div class="rule"><span>Provider advice</span><b>'+esc(p.advice||"Not supplied")+'</b></div><div class="rule"><span>Exact predicted score</span><b>Not supplied</b></div><div class="rule"><span>Cards market</span><b>Not connected</b></div><p class="detail-note">Goals values and over/under line are provider forecast fields, not confirmed betting odds or guaranteed outcomes. Card predictions and exact score require a separate supported data feed.</p></div>';host.scrollIntoView({behavior:"smooth",block:"start"});}
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 function showFixtureError(message){
  document.getElementById("fixtureStatus").textContent="Fixture feed unavailable";
