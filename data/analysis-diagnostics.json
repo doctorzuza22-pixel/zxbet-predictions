@@ -1,0 +1,411 @@
+{
+  "generated_at": "2026-11-11T08:37:13Z",
+  "forecast_requests": 55,
+  "forecasts_saved": 0,
+  "empty_or_unsupported": 0,
+  "provider_errors": 55,
+  "fixtures": [
+    {
+      "fixture_id": 1628581,
+      "league": "NPFL",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1649437,
+      "league": "Pernambucano - 1",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1649439,
+      "league": "Pernambucano - 1",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1649517,
+      "league": "Liga de Expansión MX",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1581906,
+      "league": "Persha Liga",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1648706,
+      "league": "SAFF Championship",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1590460,
+      "league": "3. Lig - Group 1",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1590463,
+      "league": "3. Lig - Group 1",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1590465,
+      "league": "3. Lig - Group 1",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1590466,
+      "league": "3. Lig - Group 1",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1590467,
+      "league": "3. Lig - Group 1",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1590767,
+      "league": "3. Lig - Group 2",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1590769,
+      "league": "3. Lig - Group 2",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1590771,
+      "league": "3. Lig - Group 2",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1591071,
+      "league": "3. Lig - Group 3",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1591072,
+      "league": "3. Lig - Group 3",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1591073,
+      "league": "3. Lig - Group 3",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1591074,
+      "league": "3. Lig - Group 3",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1591075,
+      "league": "3. Lig - Group 3",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1591076,
+      "league": "3. Lig - Group 3",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1591078,
+      "league": "3. Lig - Group 3",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1591079,
+      "league": "3. Lig - Group 3",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1590464,
+      "league": "3. Lig - Group 1",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1590459,
+      "league": "3. Lig - Group 1",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1590461,
+      "league": "3. Lig - Group 1",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1590462,
+      "league": "3. Lig - Group 1",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1590765,
+      "league": "3. Lig - Group 2",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1590766,
+      "league": "3. Lig - Group 2",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1590772,
+      "league": "3. Lig - Group 2",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1603824,
+      "league": "Third League - Southwest",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1603847,
+      "league": "Third League - Southwest",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1644892,
+      "league": "Ligue 1",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1646210,
+      "league": "Ligue 1",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1590768,
+      "league": "3. Lig - Group 2",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1590770,
+      "league": "3. Lig - Group 2",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1590773,
+      "league": "3. Lig - Group 2",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1644890,
+      "league": "Ligue 1",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1644893,
+      "league": "Ligue 1",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1644894,
+      "league": "Ligue 1",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1646211,
+      "league": "Ligue 1",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1579841,
+      "league": "First Amateur Division",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1568584,
+      "league": "III Liga - Group 3",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1644130,
+      "league": "Ýokary Liga",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1644131,
+      "league": "Ýokary Liga",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1648707,
+      "league": "SAFF Championship",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1615825,
+      "league": "Tercera División RFEF - Group 11",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1581008,
+      "league": "Feminine Division 1",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1591077,
+      "league": "3. Lig - Group 3",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1600001,
+      "league": "National 2 - Group C",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1600014,
+      "league": "National 2 - Group C",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1631607,
+      "league": "Liga Premier Serie B",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1615820,
+      "league": "Tercera División RFEF - Group 11",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1649444,
+      "league": "1 Lyga",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1599964,
+      "league": "National 2 - Group C",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    },
+    {
+      "fixture_id": 1600002,
+      "league": "National 2 - Group C",
+      "status": "provider_error",
+      "http_status": "200",
+      "reason": "{\"access\":\"Your account is suspended, check on https://dashboard.api-football.com.\"}"
+    }
+  ],
+  "injury_days": [
+    {
+      "date": "2026-11-10",
+      "http_status": "200",
+      "status": "provider_error"
+    },
+    {
+      "date": "2026-11-11",
+      "http_status": "200",
+      "status": "provider_error"
+    },
+    {
+      "date": "2026-11-12",
+      "http_status": "200",
+      "status": "provider_error"
+    }
+  ]
+}
