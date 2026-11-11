@@ -20,7 +20,7 @@ jobs:
         with:
           persist-credentials: true
 
-      - name: Fetch next seven days from API-Football free tier
+      - name: Fetch next three days from API-Football free tier
         env:
           APISPORTS_KEY: ${{ secrets.APISPORTS_KEY }}
         run: |
@@ -33,7 +33,7 @@ jobs:
           tmpdir="$(mktemp -d)"
           trap 'rm -rf "$tmpdir"' EXIT
           : > "$tmpdir/fixtures.ndjson"
-          for offset in 0 1 2 3 4 5 6; do
+          for offset in 0 1 2; do
             day="$(date -u -d "+${offset} day" +%F)"
             echo "Fetching fixtures for ${day}"
             curl --fail --silent --show-error --get \
