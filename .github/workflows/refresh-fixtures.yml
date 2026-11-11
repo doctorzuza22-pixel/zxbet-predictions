@@ -30,28 +30,27 @@ jobs:
             exit 1
           fi
           mkdir -p data
-          mkdir -p data
           tmpdir="$(mktemp -d)"
           trap 'rm -rf "$tmpdir"' EXIT
           : > "$tmpdir/fixtures.ndjson"
           for offset in 0 1 2 3 4 5 6; do
             day="$(date -u -d "+${offset} day" +%F)"
             echo "Fetching fixtures for ${day}"
-            body="$(curl --fail --silent --show-error --get \
+            curl --fail --silent --show-error --get \
               --header "x-apisports-key: ${APISPORTS_KEY}" \
               --data-urlencode "date=${day}" \
               --data-urlencode "timezone=Africa/Johannesburg" \
-              "https://v3.football.api-sports.io/fixtures")"
-            if ! echo "$body" | jq -e '(.errors | length) == 0 and (.response | type) == "array"' >/dev/null; then
+              "https://v3.football.api-sports.io/fixtures" \
+              --output "$tmpdir/${day}.json"
+            if ! jq -e '(.errors | length) == 0 and (.response | type) == "array"' "$tmpdir/${day}.json" >/dev/null; then
               echo "::error::Provider returned an API error for ${day}; keeping existing published feed."
-              echo "$body" | jq '{errors, results, paging}' || true
+              jq '{errors, results, paging}' "$tmpdir/${day}.json" || true
               exit 1
             fi
-            echo "$body" | jq -c '.response[]' >> "$tmpdir/fixtures.ndjson"
+            jq -c '.response[]' "$tmpdir/${day}.json" >> "$tmpdir/fixtures.ndjson"
           done
-          jq -s -n --arg generated_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --slurpfile response "$tmpdir/fixtures.ndjson" '{generated_at:$generated_at,response:$response[0]}' > data/fixtures.json
-          echo "Published candidate fixture count: $(jq '.response|length' data/fixtures.json)"
-          jq -n --arg generated_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --argjson response "$combined" '{generated_at:$generated_at,response:$response}' > data/fixtures.json
+          jq -s --arg generated_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '{generated_at:$generated_at,response:.}' "$tmpdir/fixtures.ndjson" > "$tmpdir/fixtures.json"
+          mv "$tmpdir/fixtures.json" data/fixtures.json
           echo "Published candidate fixture count: $(jq '.response|length' data/fixtures.json)"
 
       - name: Publish updated feed
