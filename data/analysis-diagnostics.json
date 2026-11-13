@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T08:51:02Z",
+  "generated_at": "2026-11-13T08:45:23Z",
   "forecast_requests": 55,
   "forecasts_saved": 0,
   "empty_or_unsupported": 0,
@@ -393,17 +393,17 @@
   ],
   "injury_days": [
     {
-      "date": "2026-11-11",
-      "http_status": "200",
-      "status": "provider_error"
-    },
-    {
       "date": "2026-11-12",
       "http_status": "200",
       "status": "provider_error"
     },
     {
       "date": "2026-11-13",
+      "http_status": "200",
+      "status": "provider_error"
+    },
+    {
+      "date": "2026-11-14",
       "http_status": "200",
       "status": "provider_error"
     }
